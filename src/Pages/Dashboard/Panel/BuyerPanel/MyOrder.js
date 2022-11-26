@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import Spinner from '../../../Share/Spinner';
 import { AuthContext } from '../../../../Context/AuthProvider';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 const MyOrder = () => {
     const { user } = useContext(AuthContext);
     const {
@@ -45,27 +46,56 @@ const MyOrder = () => {
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>Image</th>
                             <th>Name</th>
                             <th>Price</th>
                             <th>Seller Name</th>
+                            <th>Seller Email</th>
                             <th>Delete</th>
+                            <th>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
                         {bookings?.map((booking, i) => (
                             <tr key={booking._id}>
                                 <th>{i + 1}</th>
+                                <td>
+                                    <div className="avatar">
+                                        <div className="mask mask-squircle w-12 h-12">
+                                            <img
+                                                src={booking.productImage}
+                                                alt="Avatar Tailwind CSS Component"
+                                            />
+                                        </div>
+                                    </div>
+                                </td>
                                 <td>{booking.productName}</td>
                                 <td>{booking.price}tk</td>
                                 <td>{booking.sellerName}</td>
+                                <td>{booking.sellerEmail}</td>
                                 <td>
                                     <button
                                         onClick={() =>
                                             handleDelete(booking._id)
                                         }
-                                        className="btn btn-xs btn-accent">
+                                        className="btn btn-xs">
                                         Delete
                                     </button>
+                                </td>
+                                <td>
+                                    {booking.price && !booking.paid && (
+                                        <Link
+                                            to={`/dashboard/payment/${booking._id}`}>
+                                            <button className="btn btn-xs btn-primary">
+                                                Pay
+                                            </button>
+                                        </Link>
+                                    )}
+                                    {booking.price && booking.paid && (
+                                        <span className="text-primary">
+                                            Paid
+                                        </span>
+                                    )}
                                 </td>
                             </tr>
                         ))}

@@ -13,11 +13,15 @@ import Signup from '../Pages/Login/Signup';
 import Welcome from '../Pages/Dashboard/Panel/Welcome';
 import MyOrder from '../Pages/Dashboard/Panel/BuyerPanel/MyOrder';
 import CategoriesData from '../Pages/Dashboard/Home/Category/Categories/CategoriesData';
+import Blog from '../Pages/Blog';
+import ErrorPage from '../Pages/Share/ErrorPage';
+import Payment from '../Pages/Dashboard/Panel/BuyerPanel/Payment';
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Main />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',
@@ -32,9 +36,17 @@ const router = createBrowserRouter([
                 element: <Signup />,
             },
             {
+                path: '/blog',
+                element: <Blog />,
+            },
+            {
                 path: '/categories-data/:category',
                 element: <CategoriesData />,
-                loader: ({ params }) => fetch(`${process.env.REACT_APP_LOCALHOST}/categories-data/${params.category}`)},
+                loader: ({ params }) =>
+                    fetch(
+                        `${process.env.REACT_APP_LOCALHOST}/categories-data/${params.category}`,
+                    ),
+            },
         ],
     },
     {
@@ -72,6 +84,11 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/welcome',
                 element: <Welcome />,
+            },
+            {
+                path: '/dashboard/payment/:id',
+                element: <Payment />,
+                loader: ({ params }) => fetch(`${process.env.REACT_APP_LOCALHOST}/booking/${params.id}`)
             },
         ],
     },
