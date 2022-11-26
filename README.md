@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Project Name: UseLap
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Refurbished laptops website
 
-## Available Scripts
+- [Live Link](https://lens-d4193.web.app/)
+- [Client site GitHub Link](https://github.com/programming-hero-web-course-4/b612-used-products-resale-clients-side-azmarifcode)
+- [Server site GitHub Link](https://github.com/azmarifcode/uselap-server)
 
-In the project directory, you can run:
+## Note: 
+আমার windows 7 & node js version - 14। তাই vercel এর কিছু প্রবলেম থাকায় মাহবুব সাকি ভাই আর জাকারিয়া ভাইয়ের কথা অনুযায়ী সার্ভার সাইট আমার পাবলিক রিপোতে ডিপলই করেছি। আর ক্লাইন্ট সাইট টা প্রাইভেটই আছে।
+ধন্যবাদ।
 
-### `npm start`
+## Website Details
+- Birthday Photography
+- Wedding photography
+- Conference Photography
+- Travel & Tourism Photography
+- Model Photography
+- Product photography & some more
+- You can review when satisfied for my service
+- You can hire me for your best photo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## About Me:
+Years ago, when I worked as a professional photographer, I thought I was good. That was because my customers were happy with what I produced, they referred other people to me and returned to do business repeatedly. Nowadays I’m not so sure. That’s because my customer base is much, much smaller, almost entirely limited to myself, my friends and family. The last two groups have no complaints about my work, but that first guy, he’s a real stickler. It’s like he knows exactly what I wanted to do and where I failed, every time. He often knows just where I mess up but, strangely, it’s when he doesn’t that things get really frustrating.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## I have used some libraries in this app.
+Below is the link:
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [MambaUi](https://www.mambaui.com)
+- [Tailwind](https://tailwindcomponents.com)
+- [Kitwind](https://kitwind.io)
+- [TailwindUiKit](https://tailwinduikit.com)
+- [DaisyUi](https://daisyui.com)
+- [Hyperui](https://www.hyperui.dev)
+- [Tailwind-kit](https://www.tailwind-kit.com)
+- [Tailwindcomponents](https://tailwindcomponents.com)
+- [Tailblocks](https://tailblocks.cc)
+- [react hot toast](https://react-hot-toast.com)
