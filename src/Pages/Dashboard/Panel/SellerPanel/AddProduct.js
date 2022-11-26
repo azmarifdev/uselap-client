@@ -60,6 +60,7 @@ const AddProduct = () => {
                     location,
                     category,
                     quality,
+                    status: "available",
                     textarea,
                     date: `${date}/${month}/${year}`,
                     time: `${hour}:${minute}`,

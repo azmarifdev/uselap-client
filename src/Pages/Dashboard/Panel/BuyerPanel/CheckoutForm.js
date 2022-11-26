@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
 const CheckoutForm = ({ paymentData }) => {
+    const { price, name, productId,  email, _id } = paymentData;
+    console.log(paymentData);
     const [cardError, setCardError] = useState('');
     const [clientSecret, setClientSecret] = useState('');
     const [ transactionId, setTransactionId ] = useState('');
@@ -12,7 +14,6 @@ const CheckoutForm = ({ paymentData }) => {
     const [success, setSuccess] = useState('');
     const stripe = useStripe();
     const elements = useElements();
-    const { price, name, email, _id } = paymentData;
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_LOCALHOST}/create-payment-intent`, {
@@ -74,6 +75,7 @@ const CheckoutForm = ({ paymentData }) => {
             price,
             email,
             name,
+            productId,
             transitionId: paymentIntent.id,
             bookingId: _id,
         };
