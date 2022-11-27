@@ -21,7 +21,7 @@ const CategoriesCard = ({ product, setBookingData }) =>
         textarea,
         useTime,
     } = product;
-    console.log(product);
+    // console.log(product);
 
     const handleReport = (id) => {
         fetch(`${process.env.REACT_APP_LOCALHOST}/report-item/${id}`, {
@@ -33,7 +33,7 @@ const CategoriesCard = ({ product, setBookingData }) =>
             .then((res) => res.json())
             .then((data) => {
                 if (data.modifiedCount) {
-                    console.log(data);
+                    // console.log(data);
                     toast.success('Reported Successfully');
                 } else {
                     toast.error(data.message);

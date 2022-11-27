@@ -85,7 +85,7 @@ const BookingModal = ({ setBookingData, bookingData }) => {
                             type="number"
                             defaultValue={price}
                             readOnly
-                            placeholder="Email Address"
+                            placeholder="price"
                             className="input w-full input-bordered"
                         />
                         <input

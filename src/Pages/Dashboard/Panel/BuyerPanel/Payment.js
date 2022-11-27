@@ -1,14 +1,13 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import {loadStripe} from '@stripe/stripe-js'
-import {Elements} from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from './CheckoutForm';
-
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 // console.log(stripePromise);
 const Payment = () => {
-    const data  = useLoaderData();
+    const data = useLoaderData();
     // console.log(data);
     return (
         <div>

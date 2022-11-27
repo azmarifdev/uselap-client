@@ -61,7 +61,7 @@ const DashboardLayout = () => {
                     <div className="">
                         <Outlet />
                     </div>
-                </div>
+                </div> 
                 <div className="drawer-side">
                     <label
                         htmlFor="my-drawer-2"

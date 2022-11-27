@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import axios from 'axios'
 import { useQuery } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 
@@ -40,22 +41,38 @@ const MyProduct = () => {
         return <Spinner />;
     }
 
-    const handleAdvertise = (id) =>
-    {
+    const handleAdvertise = (id) => {
+        // console.log(id);
+
+        // axios.patch(`http://localhost:7000/advertise/${id}`, {
+        //     advertise: true
+        // })
+        //     .then(res => console.log(res))
+        // .catch(err => console.log(err))
+        
+
+
+
+
+
         fetch(`${process.env.REACT_APP_LOCALHOST}/advertise/${id}`, {
-            method: "PATCH",
-            headers: {'content-type': 'application/json'}
+            method: 'PATCH',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+                advertise: true,
+            }),
         })
-            .then(res => res.json())
-            .then(data =>
-            {
-                if (data.modifiedCount)
-                {
-                    console.log(data);
-                    toast.success("Advertise successfully")
-                }
-        })
-    }
+            .then((res) => res.json())
+            .then((data) => {
+                // console.log(data);
+                // if (data.modifiedCount) {
+                //     toast.success('Advertise successfully');
+                // }
+            })
+            .catch((err) => console.error(err.message));
+    
+    
+    };
 
     return (
         <div>
@@ -80,7 +97,11 @@ const MyProduct = () => {
                                     <td>{product.price}</td>
                                     <td>
                                         <>
-                                            <button onClick={()=> handleAdvertise(product._id)} className="btn btn-xs btn-primary">
+                                            <button
+                                                onClick={() =>
+                                                    handleAdvertise(product?._id)
+                                                }
+                                                className="btn btn-xs btn-primary">
                                                 Advertise
                                             </button>
                                         </>

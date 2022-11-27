@@ -4,12 +4,12 @@ import toast from 'react-hot-toast';
 
 const CheckoutForm = ({ paymentData }) => {
     const { price, name, productId, email, _id } = paymentData;
-    // console.log(paymentData);
+    console.log(paymentData);
     const [cardError, setCardError] = useState('');
     const [clientSecret, setClientSecret] = useState('');
-    const [ transactionId, setTransactionId ] = useState('');
-    const [ stripeSuccess, setStripeSuccess ] = useState(' ');
-        const [stripeId, setStripeId] = useState(' ');
+    const [transactionId, setTransactionId] = useState('');
+    const [stripeSuccess, setStripeSuccess] = useState(' ');
+    const [stripeId, setStripeId] = useState(' ');
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState('');
     const stripe = useStripe();
@@ -46,31 +46,28 @@ const CheckoutForm = ({ paymentData }) => {
         } else {
             setCardError('');
         }
-        setSuccess('')
-        setLoading(true)
-        const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
-            clientSecret,
-            {
+        setSuccess('');
+        setLoading(true);
+        const { paymentIntent, error: confirmError } =
+            await stripe.confirmCardPayment(clientSecret, {
                 payment_method: {
                     card: card,
                     billing_details: {
                         name: name,
-                        email: email
+                        email: email,
                     },
                 },
-            },
-        );
-        if(confirmError){
+            });
+        if (confirmError) {
             setCardError(confirmError.message);
-                return;
+            return;
         }
-        if (paymentIntent.status === "succeeded")
-        {
-            setSuccess('congrats! your payment completed')
-            setTransactionId(paymentIntent.id)
+        if (paymentIntent.status === 'succeeded') {
+            setSuccess('congrats! your payment completed');
+            setTransactionId(paymentIntent.id);
         }
 
-//
+        //
         const payment = {
             price,
             email,
@@ -82,23 +79,21 @@ const CheckoutForm = ({ paymentData }) => {
         if (paymentIntent.status === 'succeeded') {
             fetch('http://localhost:7000/payments', {
                 method: 'POST',
-                headers: {'content-type': 'application/json'},
+                headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(payment),
             })
                 .then((res) => res.json())
-                .then((data) =>
-                {
-                    toast.success('success')
+                .then((data) => {
+                    toast.success('success');
                     // console.log(data);
                     setStripeSuccess('congrats!, Your payment completed');
                     setStripeId(paymentIntent.id);
                 });
         }
 
-//
+        //
 
-
-        setLoading(false)
+        setLoading(false);
         // console.log('paymentIntent', paymentIntent);
     };
     return (
@@ -132,7 +127,8 @@ const CheckoutForm = ({ paymentData }) => {
                 <div>
                     <p className="text-green-600">{success}</p>
                     <p>
-                       Your transactionId: <span className="font-bold">{transactionId}</span>
+                        Your transactionId:{' '}
+                        <span className="font-bold">{transactionId}</span>
                     </p>
                 </div>
             )}

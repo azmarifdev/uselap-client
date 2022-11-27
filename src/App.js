@@ -4,7 +4,7 @@ import { RouterProvider } from 'react-router-dom';
 import router from './Routes/Route';
 function App() {
     return (
-        <div>
+        <div className="max-w-screen-xl mx-auto">
             <RouterProvider router={router} />
             <Toaster></Toaster>
         </div>

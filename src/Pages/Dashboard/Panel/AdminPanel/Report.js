@@ -18,7 +18,7 @@ const Report = () =>
     {
         return <Spinner/>
     }
-    console.log(reportedItem);
+    // console.log(reportedItem);
 
 
     const handleDelete = (id) => {
