@@ -68,13 +68,6 @@ const DashboardLayout = () => {
                         className="drawer-overlay"></label>
                     <ul className="menu p-4 w-64 bg-base-100 text-base-content">
                         <>
-                            <li>
-                                <Link
-                                    className=""
-                                    to="/dashboard/welcome">
-                                    Welcome
-                                </Link>
-                            </li>
                             {isRole === 'Admin' && admin}
                             {isRole === 'Seller' && seller}
                             {isRole === 'Buyer' && buyer}

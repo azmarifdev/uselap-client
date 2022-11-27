@@ -21,7 +21,7 @@ const MyProduct = () => {
             return data;
         },
     });
-    console.log(products);
+    // console.log(products);
 
     const handleDelete = (id) => {
         fetch(`${process.env.REACT_APP_LOCALHOST}/products/${id}`, {
@@ -30,7 +30,7 @@ const MyProduct = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 toast.success('Delete successfully');
                 refetch();
             });
@@ -38,6 +38,23 @@ const MyProduct = () => {
 
     if (isLoading) {
         return <Spinner />;
+    }
+
+    const handleAdvertise = (id) =>
+    {
+        fetch(`${process.env.REACT_APP_LOCALHOST}/advertise/${id}`, {
+            method: "PATCH",
+            headers: {'content-type': 'application/json'}
+        })
+            .then(res => res.json())
+            .then(data =>
+            {
+                if (data.modifiedCount)
+                {
+                    console.log(data);
+                    toast.success("Advertise successfully")
+                }
+        })
     }
 
     return (
@@ -63,7 +80,7 @@ const MyProduct = () => {
                                     <td>{product.price}</td>
                                     <td>
                                         <>
-                                            <button className="btn btn-xs btn-primary">
+                                            <button onClick={()=> handleAdvertise(product._id)} className="btn btn-xs btn-primary">
                                                 Advertise
                                             </button>
                                         </>

@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../../../../Context/AuthProvider';
 import BookingModal from './BookingModal';
 import CategoriesCard from './CategoriesCard';
 
-const CategoriesData = () => {
+const CategoriesData = () =>
+{
     const products = useLoaderData();
-    console.log(products);
+    // console.log(products);
     const [bookingData, setBookingData] = useState(null);
 
-    console.log(bookingData);
+    // console.log(bookingData);
 
     return (
         <div className="">

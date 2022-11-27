@@ -23,7 +23,7 @@ const AllProduct = () => {
         return <Spinner />;
     }
 
-    console.log(allProducts);
+    // console.log(allProducts);
     const handleDelete = (id) => {
         fetch(`${process.env.REACT_APP_LOCALHOST}/allProducts/${id}`, {
             method: 'DELETE',
@@ -31,7 +31,7 @@ const AllProduct = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 toast.success('delete successfully');
                 refetch();
             });

@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
 const CheckoutForm = ({ paymentData }) => {
-    const { price, name, productId,  email, _id } = paymentData;
-    console.log(paymentData);
+    const { price, name, productId, email, _id } = paymentData;
+    // console.log(paymentData);
     const [cardError, setCardError] = useState('');
     const [clientSecret, setClientSecret] = useState('');
     const [ transactionId, setTransactionId ] = useState('');
@@ -41,7 +41,7 @@ const CheckoutForm = ({ paymentData }) => {
         });
 
         if (error) {
-            console.log(error);
+            // console.log(error);
             setCardError(error.message);
         } else {
             setCardError('');
@@ -70,7 +70,7 @@ const CheckoutForm = ({ paymentData }) => {
             setTransactionId(paymentIntent.id)
         }
 
-///////////////////////////////////////////////////
+//
         const payment = {
             price,
             email,
@@ -89,17 +89,17 @@ const CheckoutForm = ({ paymentData }) => {
                 .then((data) =>
                 {
                     toast.success('success')
-                    console.log(data);
+                    // console.log(data);
                     setStripeSuccess('congrats!, Your payment completed');
                     setStripeId(paymentIntent.id);
                 });
         }
 
-////////
+//
 
 
         setLoading(false)
-        console.log('paymentIntent', paymentIntent);
+        // console.log('paymentIntent', paymentIntent);
     };
     return (
         <div>

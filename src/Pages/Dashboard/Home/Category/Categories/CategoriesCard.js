@@ -1,10 +1,10 @@
-import { sendSignInLinkToEmail } from 'firebase/auth';
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../../../Context/AuthProvider';
 
-const CategoriesCard = ({ product, setBookingData }) => {
-    const { user } = useContext(AuthContext);
+const CategoriesCard = ({ product, setBookingData }) =>
+{
     const {
         date,
         email,
@@ -21,6 +21,25 @@ const CategoriesCard = ({ product, setBookingData }) => {
         textarea,
         useTime,
     } = product;
+    console.log(product);
+
+    const handleReport = (id) => {
+        fetch(`${process.env.REACT_APP_LOCALHOST}/report-item/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.modifiedCount) {
+                    console.log(data);
+                    toast.success('Reported Successfully');
+                } else {
+                    toast.error(data.message);
+                }
+            });
+    };
 
     return (
         <>
@@ -100,17 +119,13 @@ const CategoriesCard = ({ product, setBookingData }) => {
                             </span>
                         </div>
                     </div>
-                    <div className="flex justify-between">
+                    <div className="flex mt-4 justify-between">
                         <div>
-                            <Link
-                                to=""
-                                class="group relative mt-5 inline-block overflow-hidden border border-gray-800 px-5 focus:outline-none focus:ring">
-                                <span class="absolute inset-y-0 left-0 w-[2px] bg-indigo-600 transition-all group-hover:w-full group-active:bg-indigo-500"></span>
-
-                                <span class="relative text-sm font-medium text-gray-800 transition-colors group-hover:text-white">
-                                    Add To WishList
-                                </span>
-                            </Link>
+                            <label
+                                onClick={() => handleReport(product._id)}
+                                className="btn btn-outline btn-sm">
+                                Report
+                            </label>
                         </div>
                         <div>
                             <label

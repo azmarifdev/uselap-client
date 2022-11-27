@@ -18,7 +18,7 @@ const AllBuyer = () => {
             return data;
         },
     });
-    console.log(buyers);
+    // console.log(buyers);
 
     const handleDelete = (id) => {
         fetch(`${process.env.REACT_APP_LOCALHOST}/buyers/${id}`, {
@@ -27,7 +27,7 @@ const AllBuyer = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 toast.success('Delete successfully');
                 refetch();
             });

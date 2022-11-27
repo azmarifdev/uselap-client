@@ -25,7 +25,7 @@ const Signup = () => {
     const handleSignup = (data) => {
         setSignUPError('');
         const image = data.photo[0];
-        console.log(data);
+        // console.log(data);
 
         const formData = new FormData();
         formData.append('image', image);
@@ -64,7 +64,7 @@ const Signup = () => {
             });
     };
 
-    // // console.log(user);
+    // console.log(user);
     const saveUser = (name, email, role) => {
         const user = { name, email, role };
         // console.log(user);

@@ -6,10 +6,10 @@ import CheckoutForm from './CheckoutForm';
 
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
-console.log(stripePromise);
+// console.log(stripePromise);
 const Payment = () => {
     const data  = useLoaderData();
-    console.log(data);
+    // console.log(data);
     return (
         <div>
             <h1 className="text-3xl text-center font-bold">Checkout</h1>

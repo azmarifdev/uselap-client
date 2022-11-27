@@ -20,7 +20,7 @@ const MyOrder = () => {
             return data;
         },
     });
-    console.log(bookings);
+    // console.log(bookings);
     if (isLoading) {
         return <Spinner />;
     }
@@ -32,7 +32,7 @@ const MyOrder = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 toast.success('Delete successfully');
                 refetch();
             });
