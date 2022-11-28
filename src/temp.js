@@ -229,23 +229,23 @@ export default BookingModal;
 
 // <div className="mx-auto">
 //                 <div className="w-[300px]">
-//                     <div class="group relative block bg-black">
+//                     <div className="group relative block bg-black">
 //                         <img
 //                             alt="Developer"
 //                             src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-//                             class="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
+//                             className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
 //                         />
 
-//                         <div class="relative p-8 flex justify-center ">
-//                             <div class="mt-64">
-//                                 <div class="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
+//                         <div className="relative p-8 flex justify-center ">
+//                             <div className="mt-64">
+//                                 <div className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
 //                                     <p className="text-3xl absolute ml-8 text-white bottom-36 font-bold">
 //                                         APPLE
 //                                     </p>
 //                                     <Link
-//                                         class="inline-block rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+//                                         className="inline-block rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
 //                                         to="">
-//                                         <span class="block rounded-full bg-[#002B53] px-8 py-3 text-white text-sm font-medium hover:bg-transparent">
+//                                         <span className="block rounded-full bg-[#002B53] px-8 py-3 text-white text-sm font-medium hover:bg-transparent">
 //                                             Shop Now
 //                                         </span>
 //                                     </Link>
@@ -257,23 +257,23 @@ export default BookingModal;
 //             </div>
 //             <div className="mx-auto">
 //                 <div className="w-[300px]">
-//                     <div class="group relative block bg-black">
+//                     <div className="group relative block bg-black">
 //                         <img
 //                             alt="Developer"
 //                             src="https://i5.walmartimages.com/asr/2a4f564f-7c70-482a-889d-88401a87c20d_1.96b7b278c66081026840c72ed19b7797.jpeg"
-//                             class="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
+//                             className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
 //                         />
 
-//                         <div class="relative p-8 flex justify-center ">
-//                             <div class="mt-64">
-//                                 <div class="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
+//                         <div className="relative p-8 flex justify-center ">
+//                             <div className="mt-64">
+//                                 <div className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
 //                                     <p className="text-3xl absolute ml-12 text-white bottom-36 font-bold">
 //                                         HP
 //                                     </p>
 //                                     <Link
-//                                         class="inline-block rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+//                                         className="inline-block rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
 //                                         to="">
-//                                         <span class="block rounded-full bg-[#002B53] px-8 py-3 text-white text-sm font-medium hover:bg-transparent">
+//                                         <span className="block rounded-full bg-[#002B53] px-8 py-3 text-white text-sm font-medium hover:bg-transparent">
 //                                             Shop Now
 //                                         </span>
 //                                     </Link>
@@ -285,23 +285,23 @@ export default BookingModal;
 //             </div>
 //             <div className="mx-auto">
 //                 <div className="w-[300px]">
-//                     <div class="group relative block bg-black">
+//                     <div className="group relative block bg-black">
 //                         <img
 //                             alt="Developer"
 //                             src="https://cf.shopee.ph/file/3157429345d61db33bae9a963de14926"
-//                             class="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
+//                             className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
 //                         />
 
-//                         <div class="relative p-8 flex justify-center ">
-//                             <div class="mt-64">
-//                                 <div class="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
+//                         <div className="relative p-8 flex justify-center ">
+//                             <div className="mt-64">
+//                                 <div className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
 //                                     <p className="text-3xl absolute ml-10 text-white bottom-36 font-bold">
 //                                         DELL
 //                                     </p>
 //                                     <Link
-//                                         class="inline-block rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+//                                         className="inline-block rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
 //                                         to="">
-//                                         <span class="block rounded-full bg-[#002B53] px-8 py-3 text-white text-sm font-medium hover:bg-transparent">
+//                                         <span className="block rounded-full bg-[#002B53] px-8 py-3 text-white text-sm font-medium hover:bg-transparent">
 //                                             Shop Now
 //                                         </span>
 //                                     </Link>

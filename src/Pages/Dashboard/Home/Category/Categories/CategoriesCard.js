@@ -3,8 +3,7 @@ import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../../../Context/AuthProvider';
 
-const CategoriesCard = ({ product, setBookingData }) =>
-{
+const CategoriesCard = ({ product, setBookingData }) => {
     const {
         date,
         email,
@@ -43,78 +42,78 @@ const CategoriesCard = ({ product, setBookingData }) =>
 
     return (
         <>
-            <div class="max-w-2xl overflow-hidden border-2 bg-white rounded-lg shadow-2xl">
+            <div className="max-w-2xl overflow-hidden border-2 bg-white rounded-lg shadow-2xl">
                 <img
-                    class="object-cover w-full h-64"
+                    className="object-cover w-full h-64"
                     src={productImage}
                     alt=""
                 />
                 <hr className="mt-3" />
 
-                <div class="p-6">
+                <div className="p-6">
                     <div>
                         <p
-                            class="block mt-2 text-2xl font-semibold text-gray-800 transition-colors duration-300 transform"
+                            className="block mt-2 text-2xl font-semibold text-gray-800 transition-colors duration-300 transform"
                             role="link">
                             {productName}
                         </p>
-                        <p class="mt-2 text-sm text-gray-800">
+                        <p className="mt-2 text-sm text-gray-800">
                             <span className="text-base">Sell Price: </span>$
                             {price}
                         </p>
-                        <p class="mt-2 text-sm text-gray-800">
+                        <p className="mt-2 text-sm text-gray-800">
                             <span className="text-base">Original Price: </span>$
                             {purchase}
                         </p>
 
-                        <p class="mt-2 text-sm text-gray-800">
+                        <p className="mt-2 text-sm text-gray-800">
                             <span className="text-base">Location: </span>
                             {location}
                         </p>
-                        <p class="mt-2 text-sm text-gray-800">
+                        <p className="mt-2 text-sm text-gray-800">
                             <span className="text-base">Used Time:</span>{' '}
                             {useTime}
                         </p>
 
-                        <p class="mt-2 text-sm text-gray-800">
+                        <p className="mt-2 text-sm text-gray-800">
                             <span className="text-base">Purchase Date: </span>
                             {purchaseYear}
                         </p>
-                        <p class="mt-2 text-sm text-gray-800">
+                        <p className="mt-2 text-sm text-gray-800">
                             <span className="text-base">Quality: </span>
                             {quality}
                         </p>
-                        <p class="mt-2 text-sm text-gray-800">
+                        <p className="mt-2 text-sm text-gray-800">
                             <span className="text-base">Seller Number: </span>
                             {phone}
                         </p>
-                        <p class="mt-2 text-sm text-gray-800">
+                        <p className="mt-2 text-sm text-gray-800">
                             <span className="text-base">Seller Email: </span>
                             {email}
                         </p>
-                        <p class="mt-2 text-sm text-gray-800">
+                        <p className="mt-2 text-sm text-gray-800">
                             <span className="text-base">Description:</span>{' '}
                             {textarea.length > 150
                                 ? textarea.slice(0, 150) + '.....'
                                 : textarea}
                         </p>
                     </div>
-                    <div class="mt-4">
-                        <div class="flex items-center">
-                            <div class="flex items-center">
+                    <div className="mt-4">
+                        <div className="flex items-center">
+                            <div className="flex items-center">
                                 <img
-                                    class="object-cover h-10 rounded-full"
+                                    className="object-cover h-10 rounded-full"
                                     src={photo}
                                     alt=""
                                 />
                                 <Link
                                     to=""
-                                    class="mx-2 font-semibold text-gray-700 "
+                                    className="mx-2 font-semibold text-gray-700 "
                                     role="link">
                                     {name}
                                 </Link>
                             </div>
-                            <span class="mx-1 text-xs text-gray-600">
+                            <span className="mx-1 text-xs text-gray-600">
                                 {date}
                             </span>
                         </div>
