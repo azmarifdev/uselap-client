@@ -18,7 +18,27 @@ const AllSeller = () => {
             return data;
         },
     });
-    // console.log(sellers);
+
+
+    const handleVerify = id => {
+
+        fetch(`${process.env.REACT_APP_LOCALHOST}/users/verified/${id}`, {
+            method: 'PUT',
+            headers: { 'content-type': 'application/json' },
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.modifiedCount > 0) {
+                    toast.success('Seller updated successfully');
+                    refetch();
+                }
+            });
+
+    }
+
+
+
+
 
     const handleDelete = (id) => {
         fetch(`${process.env.REACT_APP_LOCALHOST}/sellers/${id}`, {
@@ -48,6 +68,7 @@ const AllSeller = () => {
                                 <th>No</th>
                                 <th>Seller Name</th>
                                 <th>Seller Email</th>
+                                <th>Verified</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
@@ -57,6 +78,11 @@ const AllSeller = () => {
                                     <th>{i + 1}</th>
                                     <td>{seller.name}</td>
                                     <td>{seller.email}</td>
+                                    <td>
+                                        <button onClick={()=> handleVerify(seller._id)} className="btn btn-xs btn-accent">
+                                            Verify
+                                        </button>
+                                    </td>
                                     <td>
                                         <button
                                             onClick={() =>

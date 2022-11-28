@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useContext } from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
 import useRole from '../Hooks/useRole';
 import Navbar from '../Pages/Share/Navbar';
 
-const DashboardLayout = () => {
+const DashboardLayout = () =>
+{
+        const { pathname } = useLocation();
+        useEffect(() => {
+            window.scrollTo({ behavior: 'smooth', top: 0 });
+        }, [pathname]);
     const { user } = useContext(AuthContext);
     const [isRole] = useRole(user?.email);
     // console.log(isRole);

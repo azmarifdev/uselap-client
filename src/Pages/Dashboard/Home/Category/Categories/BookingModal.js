@@ -64,11 +64,16 @@ const BookingModal = ({ setBookingData, bookingData }) => {
                     <form
                         onSubmit={handleBooking}
                         className="grid grid-cols-1 gap-3 mt-10">
+                        <label
+                            className="mb-1 block text-sm text-gray-600"
+                            htmlFor="first_name">
+                            Name
+                        </label>
                         <input
                             name="name"
                             type="text"
                             defaultValue={user?.displayName}
-                            readOnly
+                            disabled
                             placeholder="Your Name"
                             className="input w-full input-bordered"
                         />
@@ -76,7 +81,7 @@ const BookingModal = ({ setBookingData, bookingData }) => {
                             name="email"
                             type="email"
                             defaultValue={user?.email}
-                            readOnly
+                            disabled
                             placeholder="Email Address"
                             className="input w-full input-bordered"
                         />
@@ -84,7 +89,7 @@ const BookingModal = ({ setBookingData, bookingData }) => {
                             name="price"
                             type="number"
                             defaultValue={price}
-                            readOnly
+                            disabled
                             placeholder="price"
                             className="input w-full input-bordered"
                         />

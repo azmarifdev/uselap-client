@@ -42,7 +42,7 @@ const Advertise = () => {
                                 {advertise.productName}
                             </h1>
                             <h1 className="font-semibold">
-                                Price: {advertise.price}{' '}
+                                Price: ${advertise.price}
                             </h1>
                             <h1 className="font-semibold">
                                 {advertise.location}
@@ -53,7 +53,7 @@ const Advertise = () => {
                                 <label 
                                     htmlFor="booking-modal"
                                     onClick={() => handleAdsData(advertise)}
-                                    className="btn btn-outline btn-sm">
+                                    className="btn mt-2 btn-outline btn-sm">
                                     Book Now
                                 </label>
                             </div>

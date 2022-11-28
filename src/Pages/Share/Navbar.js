@@ -14,13 +14,13 @@ const Navbar = () => {
         navigate('/');
     };
     return (
-        <div className="bg-base-100 shadow-lg sticky top-0 h-16 z-50">
+        <div className="bg-[#055C7A] text-white shadow-lg sticky top-0 h-16 z-50">
             <div className="navbar container">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label
                             tabIndex={0}
-                            className="btn btn-ghost lg:hidden text-gray-800">
+                            className="btn btn-ghost lg:hidden text-white">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-5 w-5"
@@ -38,7 +38,7 @@ const Navbar = () => {
                         <div className="mx-auto">
                             <ul
                                 tabIndex={0}
-                                className="menu menu-compact dropdown-content mt-5 p-2 shadow absolute bg-base-100 rounded-box w-52 text-gray-800">
+                                className="menu menu-compact dropdown-content mt-5 p-2 shadow absolute bg-base-100 rounded-box w-52 text-black">
                                 <li>
                                     <Link to="/">HOME</Link>
                                 </li>
@@ -48,9 +48,6 @@ const Navbar = () => {
 
                                 <li>
                                     <Link to="/blog">BLOG</Link>
-                                </li>
-                                <li>
-                                    <Link to="/faq">FAQ</Link>
                                 </li>
                             </ul>
                         </div>
@@ -70,21 +67,18 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex text-white">
                     <ul className="menu menu-horizontal gap-10 p-0">
-                        <li className="text-gray-800">
+                        <li className="text-white">
                             <Link to="/">HOME</Link>
                         </li>
-                        <li className="text-gray-800">
+                        <li className="text-white">
                             <Link to="/dashboard">DASHBOARD</Link>
                         </li>
-                        <li className="text-gray-800">
+                        <li className="text-white">
                             <Link to="/blog">BLOG</Link>
-                        </li>
-                        <li className="text-gray-800">
-                            <Link to="/faq">FAQ</Link>
                         </li>
                     </ul>
                 </div>
-                <div className="navbar-end flex">
+                <div className="navbar-end md:mr-14 flex">
                     <>
                         {user?.uid ? (
                             <div
@@ -123,7 +117,7 @@ const Navbar = () => {
                             <div className="flex gap-4">
                                 <Link
                                     to="/login"
-                                    className="btn  bg-[#b3dcff] text-gray-800">
+                                    className="btn  bg-[#b3dcff] text-white">
                                     Log In
                                 </Link>
                             </div>
