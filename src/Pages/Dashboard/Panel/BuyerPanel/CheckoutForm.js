@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const CheckoutForm = ({ paymentData }) => {
     const { price, name, productId, email, _id } = paymentData;
-    console.log(paymentData);
+    // console.log(paymentData);
     const [cardError, setCardError] = useState('');
     const [clientSecret, setClientSecret] = useState('');
     const [transactionId, setTransactionId] = useState('');

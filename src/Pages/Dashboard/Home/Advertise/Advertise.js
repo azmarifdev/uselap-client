@@ -18,7 +18,7 @@ const Advertise = () => {
     const handleAdsData = (e) => {
         setBookingData(e);
     };
-    console.log(advertised);
+    // console.log(advertised);
 
     return (
         <>

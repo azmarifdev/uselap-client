@@ -1,3 +1,38 @@
+import { useEffect, useState } from 'react';
+
+const useRole = (email) => {
+    const [isRole, setIsRole] = useState('');
+    // const [isAdminLoading, setIsAdminLoading] = (true)
+    // console.log(setIsRole);
+
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_LOCALHOST}/users/${email}`)
+            .then((res) => res.json())
+            .then((data) => {
+                setIsRole(data.role);
+                // console.log(data.role);
+            });
+    }, [email]);
+    return [isRole];
+};
+
+export default useRole;
+
+    const [catagories, setCatagories] = useState([]);
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_LOCALHOST}/category`)
+            .then((res) => res.json())
+            .then((data) => {
+                setCatagories(data);
+            });
+    }, []);
+
+
+
+
+
+
+
 import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
@@ -18,7 +53,7 @@ const Advertise = () => {
     const handleAdsData = (e) => {
         setBookingData(e);
     };
-    console.log(advertised);
+    // console.log(advertised);
 
     return (
         <div>
