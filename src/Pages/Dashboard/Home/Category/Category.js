@@ -17,7 +17,7 @@ const Category = () => {
                 <p>second hand product category</p>
                 <hr className="mt-1 border-2" />
             </div>
-            <div className="w-4/5 grid md:grid-cols-3 gap-10 my-5 mx-auto">
+            <div className="grid md:grid-cols-3 gap-y-7 md:gap-10 my-5 mx-auto">
                 {catagories.map((category) => (
                     <>
                         <div className="mx-auto">

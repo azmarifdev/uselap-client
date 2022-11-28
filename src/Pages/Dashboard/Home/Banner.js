@@ -21,7 +21,7 @@ const Banner = () => {
                         alt=""
                         className="lg:hidden md:hidden block"
                     />
-                    <div className="absolute mx-auto top-16 left-28 lg:px-7 px-4 py-4">
+                    <div className="absolute top-0 right-3 mx-auto md:top-16 md:left-28 lg:px-7 md:px-4 md:py-4">
                         <p className="lg:text-4xl md:text-2xl text-2xl font-semibold leading-9 text-white">
                             Certified <br />{' '}
                             <span className="text-[yellow]">
