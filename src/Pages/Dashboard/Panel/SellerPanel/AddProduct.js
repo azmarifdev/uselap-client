@@ -80,7 +80,7 @@ const AddProduct = () => {
     };
     return (
         <div>
-            <section class="p-6  bg-base-100 rounded-md shadow-2xl mt-20 mb-10 md:mt-10">
+            <section class="p-6  bg-base-100 rounded-md shadow-2xl mt-0 mb-10 md:mt-10">
                 <h1 class="text-3xl my-2 uppercase text-center font-bold text-gray-800">
                     Add Product
                 </h1>

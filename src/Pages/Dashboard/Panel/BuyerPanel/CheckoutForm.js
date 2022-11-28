@@ -1,6 +1,7 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 const CheckoutForm = ({ paymentData }) => {
     const { price, name, productId, email, _id } = paymentData;
@@ -77,7 +78,7 @@ const CheckoutForm = ({ paymentData }) => {
             bookingId: _id,
         };
         if (paymentIntent.status === 'succeeded') {
-            fetch('http://localhost:7000/payments', {
+            fetch(`${process.env.REACT_APP_LOCALHOST}/payments`, {
                 method: 'POST',
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(payment),
@@ -124,13 +125,20 @@ const CheckoutForm = ({ paymentData }) => {
             </form>
             <div className="text-red-600"> {cardError}</div>
             {success && (
-                <div>
-                    <p className="text-green-600">{success}</p>
-                    <p>
-                        Your transactionId:{' '}
-                        <span className="font-bold">{transactionId}</span>
-                    </p>
-                </div>
+                <>
+                    <div>
+                        <p className="text-green-600">{success}</p>
+                        <p>
+                            Your transactionId:{' '}
+                            <span className="font-bold">{transactionId}</span>
+                        </p>
+                    </div>
+                    <div>
+                        <Link to="/dashboard/my-order">
+                            <button className="btn btn-accent my-3 btn-sm">Go Back</button>
+                        </Link>
+                    </div>
+                </>
             )}
         </div>
     );

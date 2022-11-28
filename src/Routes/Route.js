@@ -16,6 +16,7 @@ import CategoriesData from '../Pages/Dashboard/Home/Category/Categories/Categori
 import Blog from '../Pages/Blog';
 import ErrorPage from '../Pages/Share/ErrorPage';
 import Payment from '../Pages/Dashboard/Panel/BuyerPanel/Payment';
+import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
     {
@@ -51,7 +52,11 @@ const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <DashboardLayout />,
+        element: (
+            <PrivateRoute>
+                <DashboardLayout />
+            </PrivateRoute>
+        ),
         children: [
             {
                 path: '/dashboard',
@@ -88,7 +93,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element: <Payment />,
-                loader: ({ params }) => fetch(`${process.env.REACT_APP_LOCALHOST}/booking/${params.id}`)
+                loader: ({ params }) =>
+                    fetch(
+                        `${process.env.REACT_APP_LOCALHOST}/booking/${params.id}`,
+                    ),
             },
         ],
     },
