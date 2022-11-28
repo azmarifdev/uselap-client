@@ -15,23 +15,18 @@ const Advertise = () => {
         },
     });
 
-    const handleAdsData = (e) => {
-        setBookingData(e);
-    };
-    // console.log(advertised);
-
     return (
         <>
             {advertised?.length === 0 ? (
                 <></>
             ) : (
                 <>
-                    <div>
+                    <div className="max-w-[1440px]">
                         <div className="py-7 text-center font-bold text-3xl uppercase">
                             <p>Advertise second hand product</p>
                             <hr className="mt-1 border-2" />
                         </div>
-                        <div className="relative w-full flex gap-4 py-6 overflow-x-auto">
+                        <div className="relative w-full border-2 shadow-2xl flex gap-4 py-6 overflow-x-auto">
                             {advertised?.map((advertise) => (
                                 <>
                                     <img
@@ -55,16 +50,6 @@ const Advertise = () => {
                                         <h1 className="font-semibold">
                                             {advertise.email}
                                         </h1>
-                                        <div>
-                                            <label
-                                                htmlFor="booking-modal"
-                                                onClick={() =>
-                                                    handleAdsData(advertise)
-                                                }
-                                                className="btn mt-2 btn-outline btn-sm">
-                                                Book Now
-                                            </label>
-                                        </div>
                                     </div>
                                 </>
                             ))}

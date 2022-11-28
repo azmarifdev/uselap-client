@@ -23,7 +23,7 @@ const MyProduct = () => {
             return data;
         },
     });
-    // console.log(products);
+    console.log(products);
 
     const handleDelete = (id) => {
         fetch(`${process.env.REACT_APP_LOCALHOST}/products/${id}`, {
@@ -63,6 +63,7 @@ const MyProduct = () => {
                 // console.log(data);
                 if (data.modifiedCount) {
                     toast.success('Advertise successfully');
+                    refetch()
                 }
             })
             .catch((err) => console.error(err.message));
@@ -106,6 +107,7 @@ const MyProduct = () => {
                                         <th>No</th>
                                         <th>Product Name</th>
                                         <th>Price</th>
+                                        <th>Status</th>
                                         <th>Advertise</th>
                                         <th>Delete</th>
                                     </tr>
@@ -117,16 +119,44 @@ const MyProduct = () => {
                                             <td>{product.productName}</td>
                                             <td>{product.price}</td>
                                             <td>
+                                                {product.status ===
+                                                'available' ? (
+                                                    <>
+                                                        <button className="btn btn-info btn-xs">
+                                                            Available
+                                                        </button>
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <button className="btn btn-warning btn-xs">
+                                                            Sold
+                                                        </button>
+                                                    </>
+                                                )}
+                                            </td>
+                                            <td>
                                                 <>
-                                                    <button
-                                                        onClick={() =>
-                                                            handleAdvertise(
-                                                                product?._id,
-                                                            )
-                                                        }
-                                                        className="btn btn-xs btn-primary">
-                                                        Advertise
-                                                    </button>
+                                                    {product.advertise ===
+                                                    true ? (
+                                                        <>
+                                                            <button className="btn btn-xs btn-success">
+                                                                Advertised
+                                                            </button>
+                                                        </>
+                                                    ) : (
+                                                        <>
+                                                            <button
+                                                                onClick={() =>
+                                                                    handleAdvertise(
+                                                                        product?._id,
+                                                                    )
+                                                                }
+                                                                className="btn btn-xs btn-primary"
+                                                                id="adButton">
+                                                                Advertise
+                                                            </button>
+                                                        </>
+                                                    )}
                                                 </>
                                             </td>
                                             <td>
@@ -136,7 +166,7 @@ const MyProduct = () => {
                                                             product._id,
                                                         )
                                                     }
-                                                    className="btn btn-xs btn-accent">
+                                                    className="btn btn-xs">
                                                     Delete
                                                 </button>
                                             </td>
