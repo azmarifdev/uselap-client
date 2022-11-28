@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-const useToken = (email) => {
+const useToken = (email) =>
+{
+    // console.log(email);
     const [token, setToken] = useState('');
     useEffect(() => {
         if (email) {
@@ -12,7 +14,7 @@ const useToken = (email) => {
                     // console.log(data)
                     if (data.accessToken) {
                         localStorage.setItem('accessToken', data.accessToken);
-                        // console.log('token er value', data.accessToken);
+                        // console.log('token er value', data);
                         setToken(data.accessToken);
                     }
                 });
