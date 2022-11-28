@@ -32,7 +32,7 @@ const AddProduct = () => {
         const quality = e.target.quality.value;
         const textarea = e.target.textarea.value;
 
-        toast.success('please wait 30 sec for submit');
+        toast.success('please wait for submit');
 
         const image = e.target.productPhoto.files[0];
         const formData = new FormData();
