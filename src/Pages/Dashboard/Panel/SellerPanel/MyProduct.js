@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
-
+import Lottie from 'lottie-react';
+import noData from '../../../../assets/noData.json';
 import { AuthContext } from '../../../../Context/AuthProvider';
 import Spinner from '../../../Share/Spinner';
+import { Link } from 'react-router-dom';
 
 const MyProduct = () => {
     const { user } = useContext(AuthContext);
@@ -68,55 +69,86 @@ const MyProduct = () => {
     };
 
     return (
-        <div>
-            <div>
-                <h3 className="text-3xl font-bold">MY Order</h3>
-                <div className="overflow-x-auto">
-                    <table className="table w-full">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Product Name</th>
-                                <th>Price</th>
-                                <th>Advertise</th>
-                                <th>Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {products?.map((product, i) => (
-                                <tr key={product._id}>
-                                    <th>{i + 1}</th>
-                                    <td>{product.productName}</td>
-                                    <td>{product.price}</td>
-                                    <td>
-                                        <>
-                                            <button
-                                                onClick={() =>
-                                                    handleAdvertise(
-                                                        product?._id,
-                                                    )
-                                                }
-                                                className="btn btn-xs btn-primary">
-                                                Advertise
-                                            </button>
-                                        </>
-                                    </td>
-                                    <td>
-                                        <button
-                                            onClick={() =>
-                                                handleDelete(product._id)
-                                            }
-                                            className="btn btn-xs btn-accent">
-                                            Delete
-                                        </button>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+        <>
+            {products?.length === 0 ? (
+                <>
+                    <div>
+                        <div className="flex justify-center mb-8">
+                            <div className="mt-5 h-1/2">
+                                <Lottie
+                                    className="mx-auto"
+                                    animationData={noData}
+                                    loop={true}
+                                />
+                            </div>
+                        </div>
+                        <div className="flex justify-center">
+                            <Link
+                                to="/dashboard/add-product"
+                                className="group relative mx-auto inline-block text-sm font-medium text-white focus:outline-none focus:ring"
+                                href="/download">
+                                <span className="absolute inset-0 border border-[#EC4F9D] group-active:border-[#EC4F9D]"></span>
+                                <span className="block border border-[#EC4F9D] bg-[#EC4F9D] px-12 py-3 transition-transform active:[#EC4F9D] active:bg-[#EC4F9D] group-hover:-translate-x-1 group-hover:-translate-y-1">
+                                    Add Product
+                                </span>
+                            </Link>
+                        </div>
+                    </div>
+                </>
+            ) : (
+                <>
+                    <div>
+                        <h3 className="text-3xl font-bold">MY Order</h3>
+                        <div className="overflow-x-auto">
+                            <table className="table w-full">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Product Name</th>
+                                        <th>Price</th>
+                                        <th>Advertise</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {products?.map((product, i) => (
+                                        <tr key={product._id}>
+                                            <th>{i + 1}</th>
+                                            <td>{product.productName}</td>
+                                            <td>{product.price}</td>
+                                            <td>
+                                                <>
+                                                    <button
+                                                        onClick={() =>
+                                                            handleAdvertise(
+                                                                product?._id,
+                                                            )
+                                                        }
+                                                        className="btn btn-xs btn-primary">
+                                                        Advertise
+                                                    </button>
+                                                </>
+                                            </td>
+                                            <td>
+                                                <button
+                                                    onClick={() =>
+                                                        handleDelete(
+                                                            product._id,
+                                                        )
+                                                    }
+                                                    className="btn btn-xs btn-accent">
+                                                    Delete
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </>
+            )}
+        </>
     );
 };
 
