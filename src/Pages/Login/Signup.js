@@ -219,10 +219,10 @@ const Signup = () => {
                             {...register('role', {
                                 required: true,
                             })}>
-                            <option selected value="Seller">
-                                Seller
+                            <option selected value="Buyer">
+                                Buyer
                             </option>
-                            <option value="Buyer">Buyer</option>
+                            <option value="Seller">Seller</option>
                         </select>
                     </div>
 

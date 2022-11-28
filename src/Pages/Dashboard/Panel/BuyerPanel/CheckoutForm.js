@@ -84,7 +84,7 @@ const CheckoutForm = ({ paymentData }) => {
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    toast.success('success');
+                    toast.success('payment successfully');
                     // console.log(data);
                     setStripeSuccess('congrats!, Your payment completed');
                     setStripeId(paymentIntent.id);

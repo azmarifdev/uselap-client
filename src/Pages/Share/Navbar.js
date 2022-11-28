@@ -14,7 +14,7 @@ const Navbar = () => {
         navigate('/');
     };
     return (
-        <div className="bg-[#055C7A] text-white shadow-lg sticky top-0 h-16 z-50">
+        <div className="bg-[#055C7A] shadow-lg sticky top-0 h-16 z-50">
             <div className="navbar container">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -78,7 +78,7 @@ const Navbar = () => {
                         </li>
                     </ul>
                 </div>
-                <div className="navbar-end md:mr-14 flex">
+                <div className="navbar-end md:mr-14 text-black flex">
                     <>
                         {user?.uid ? (
                             <div
@@ -93,17 +93,23 @@ const Navbar = () => {
                                 </label>
                                 <ul
                                     tabIndex={0}
-                                    className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                                    className="menu menu-compact dropdown-content mt-3 text-black p-2 shadow bg-base-100 rounded-box w-52">
                                     <li>
-                                        <Link to="" className="justify-between">
+                                        <Link
+                                            to=""
+                                            className="justify-between text-black">
                                             {user?.uid
                                                 ? user.displayName
                                                 : 'Name'}
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="">
-                                            {user?.uid ? user.email : 'Email'}
+                                        <Link to="" className="text-black">
+                                            <span className="text-black">
+                                                {user?.uid
+                                                    ? user.email
+                                                    : 'Email'}
+                                            </span>
                                         </Link>
                                     </li>
                                     <li>
@@ -117,7 +123,7 @@ const Navbar = () => {
                             <div className="flex gap-4">
                                 <Link
                                     to="/login"
-                                    className="btn  bg-[#b3dcff] text-white">
+                                    className="btn btn-sm bg-[#FFDEE0] text-black">
                                     Log In
                                 </Link>
                             </div>
@@ -127,7 +133,7 @@ const Navbar = () => {
                 <label
                     tabIndex={0}
                     htmlFor="my-drawer-2"
-                    className="btn btn-ghost lg:hidden text-gray-800">
+                    className="btn btn-ghost lg:hidden text-white">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-5 w-5"

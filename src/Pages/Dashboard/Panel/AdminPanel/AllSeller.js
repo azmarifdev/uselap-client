@@ -29,7 +29,7 @@ const AllSeller = () => {
             .then((res) => res.json())
             .then((data) => {
                 if (data.modifiedCount > 0) {
-                    toast.success('Seller updated successfully');
+                    toast.success('Seller verified successfully');
                     refetch();
                 }
             });

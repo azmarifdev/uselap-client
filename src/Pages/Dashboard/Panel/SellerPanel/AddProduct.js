@@ -32,7 +32,7 @@ const AddProduct = () => {
         const quality = e.target.quality.value;
         const textarea = e.target.textarea.value;
 
-        toast.success('Wait for Submit');
+        toast.success('please wait 30 sec for submit');
 
         const image = e.target.productPhoto.files[0];
         const formData = new FormData();
@@ -80,8 +80,8 @@ const AddProduct = () => {
     };
     return (
         <div>
-            <section class="p-6  bg-base-100 rounded-md shadow-2xl mt-20 mb-10 md:mt-16">
-                <h1 class="text-xl text-center font-bold text-gray-800 capitalize">
+            <section class="p-6  bg-base-100 rounded-md shadow-2xl mt-20 mb-10 md:mt-10">
+                <h1 class="text-3xl my-2 uppercase text-center font-bold text-gray-800">
                     Add Product
                 </h1>
                 <form onSubmit={handleProduct}>
@@ -120,6 +120,7 @@ const AddProduct = () => {
                                 id="product"
                                 type="text"
                                 name="product"
+                                required
                                 placeholder="Product Name"
                                 class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md   focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                             />
@@ -131,6 +132,7 @@ const AddProduct = () => {
                             <input
                                 id="price"
                                 type="number"
+                                required
                                 name="price"
                                 placeholder="Price"
                                 class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md   focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
@@ -142,6 +144,7 @@ const AddProduct = () => {
                             </label>
                             <input
                                 id="useTime"
+                                required
                                 type="text"
                                 name="useTime"
                                 placeholder="Used time"
@@ -156,6 +159,7 @@ const AddProduct = () => {
                                 id="purchaseYear"
                                 type="date"
                                 name="purchaseYear"
+                                required
                                 class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md   focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                             />
                         </div>
@@ -166,6 +170,7 @@ const AddProduct = () => {
                             <input
                                 id="purchase"
                                 type="number"
+                                required
                                 name="purchase"
                                 placeholder="Original price"
                                 class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md   focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
@@ -179,6 +184,7 @@ const AddProduct = () => {
                                 id="location"
                                 type="text"
                                 name="location"
+                                required
                                 placeholder="Location"
                                 class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md   focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                             />
@@ -191,6 +197,7 @@ const AddProduct = () => {
                                 id="phone"
                                 type="number"
                                 name="phone"
+                                required
                                 placeholder="Seller Phone Number"
                                 class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md   focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                             />
@@ -227,17 +234,20 @@ const AddProduct = () => {
                                 id="photo"
                                 type="file"
                                 name="productPhoto"
+                                required
                                 class="block w-full px-4 py-1.5 mt-2 text-gray-700 bg-white border rounded-md     border-gray-600 focus:border-blue-400   focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                             />
                         </div>
                     </div>
                     <div className="mt-5">
                         <label class="text-gray-800" for="passwordConfirmation">
-                            Text Area
+                            Description
                         </label>
                         <textarea
                             id="textarea"
                             type="textarea"
+                            required
+                            placeholder="write your product information"
                             class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md   focus:border-blue-500 focus:outline-none focus:ring"></textarea>
                     </div>
                     <div class="flex justify-center mt-6">

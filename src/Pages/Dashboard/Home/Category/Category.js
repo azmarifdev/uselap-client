@@ -13,7 +13,7 @@ const Category = () => {
     // console.log(catagories);
     return (
         <div>
-            <div className="py-7 text-center font-bold text-4xl uppercase">
+            <div className="py-7 text-center font-bold text-3xl mt-3 uppercase">
                 <p>second hand product category</p>
                 <hr className="mt-1 border-2" />
             </div>
@@ -22,16 +22,16 @@ const Category = () => {
                     <>
                         <div className="mx-auto">
                             <div className="w-[300px]">
-                                <div class="group relative block bg-black">
+                                <div class="group relative block rounded-xl hover:shadow-2xl bg-black">
                                     <img
                                         alt="Developer"
                                         src={category.image}
-                                        class="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
+                                        class="absolute inset-0 h-full w-full rounded-xl object-cover opacity-75 transition-opacity group-hover:opacity-50"
                                     />
 
                                     <div class="relative p-8 flex justify-center ">
                                         <div class="mt-64">
-                                            <div class="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
+                                            <div class="translate-y-8 hover:rounded-xl transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
                                                 <p className="text-3xl absolute ml-8 text-white bottom-36 font-bold">
                                                     {category.category}
                                                 </p>

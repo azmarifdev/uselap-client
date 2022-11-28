@@ -3,7 +3,7 @@ import React from 'react';
 const BestSells = () => {
     return (
         <div className="">
-            <div className="bg-gray-100 flex flex-col justify-center items-center pt-9 sm:pt-12 lg:pt-16 pb-24 sm:pb-52">
+            <div className=" flex flex-col justify-center items-center pt-9 sm:pt-12 lg:pt-16 pb-24 sm:pb-52">
                 <div className="2xl:container 2xl:mx-auto flex flex-col justify-center items-center sm:pb-12 lg:pb-0 space-y-4 px-4 md:px-6 2xl:px-0">
                     <div>
                         <p className="text-3xl lg:text-4xl font-semibold leading-9 text-center text-gray-800">
@@ -20,11 +20,11 @@ const BestSells = () => {
             </div>
             <div className="-mt-16 sm:-mt-48 lg:-mt-32 xl:-mt-40 2xl:container 2xl:mx-auto flex justify-center items-center space-y-4 px-4 md:px-6 2xl:px-0 mb-16">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-between gap-x-6 gap-y-5">
-                    <div className="flex flex-col justify-center items-center p-2 bg-white">
+                    <div className="flex flex-col justify-center items-center p-2 ">
                         <div className="relative">
                             <img
-                                className="h-56 w-56 aspect-video rounded-sm object-cover object-center"
-                                src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                                className="h-56 w-56 aspect-video border-2 shadow-2xl rounded-lg object-cover object-center"
+                                src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bWFjYm9va3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
                                 alt="watch"
                             />
 
@@ -67,11 +67,11 @@ const BestSells = () => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col justify-center items-center p-2 bg-white">
+                    <div className="flex flex-col justify-center items-center p-2 ">
                         <div className="relative">
                             <img
-                                className="h-56 w-56 aspect-video rounded-sm object-cover object-center"
-                                src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bWFjYm9va3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                                className="h-56 w-56 aspect-video rounded-lg object-cover object-center"
+                                src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
                                 alt="headphones"
                             />
 
@@ -114,10 +114,10 @@ const BestSells = () => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col justify-center items-center p-2 bg-white">
+                    <div className="flex flex-col justify-center items-center p-2 ">
                         <div className="relative">
                             <img
-                                className="h-56 w-56 aspect-video rounded-sm object-cover object-center"
+                                className="h-56 w-56 aspect-video rounded-lg object-cover object-center"
                                 src="https://images.unsplash.com/photo-1526925712774-2833a7ecd0d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fG1hY2Jvb2t8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
                                 alt="speaker"
                             />
@@ -161,10 +161,10 @@ const BestSells = () => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col justify-center items-center p-2 bg-white">
+                    <div className="flex flex-col justify-center items-center p-2 ">
                         <div className="relative">
                             <img
-                                className="h-56 w-56 aspect-video rounded-sm object-cover object-center"
+                                className="h-56 w-56 aspect-video rounded-lg object-cover object-center"
                                 src="https://images.unsplash.com/photo-1661961110218-35af7210f803?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
                                 alt="game-controller"
                             />
@@ -208,10 +208,10 @@ const BestSells = () => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col justify-center items-center p-2 bg-white">
+                    <div className="flex flex-col justify-center items-center p-2 ">
                         <div className="relative">
                             <img
-                                className="h-56 w-56 aspect-video rounded-sm object-cover object-center"
+                                className="h-56 w-56 aspect-video rounded-lg object-cover object-center"
                                 src="https://images.unsplash.com/photo-1593642532973-d31b6557fa68?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
                                 alt="speaker"
                             />
@@ -255,10 +255,10 @@ const BestSells = () => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col justify-center items-center p-2 bg-white">
+                    <div className="flex flex-col justify-center items-center p-2 ">
                         <div className="relative">
                             <img
-                                className="h-56 w-56 aspect-video rounded-sm object-cover object-center"
+                                className="h-56 w-56 aspect-video rounded-lg object-cover object-center"
                                 src="https://images.unsplash.com/photo-1593642634524-b40b5baae6bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80"
                                 alt="game-controller"
                             />
@@ -302,7 +302,7 @@ const BestSells = () => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col justify-center items-center p-2 bg-white">
+                    <div className="flex flex-col justify-center items-center p-2 ">
                         <div className="relative">
                             <img
                                 src="https://images.unsplash.com/photo-1504707748692-419802cf939d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=847&q=80"
@@ -347,10 +347,10 @@ const BestSells = () => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col justify-center items-center p-2 bg-white">
+                    <div className="flex flex-col justify-center items-center p-2 ">
                         <div className="relative">
                             <img
-                                className="h-56 w-56 aspect-video rounded-sm object-cover object-center"
+                                className="h-56 w-56 aspect-video rounded-lg object-cover object-center"
                                 src="https://images.unsplash.com/photo-1661961112951-f2bfd1f253ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80"
                                 alt="headphones"
                             />

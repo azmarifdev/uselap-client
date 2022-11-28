@@ -14,7 +14,7 @@ const CategoriesData = () =>
 
     return (
         <div className="">
-            <div className="grid grid-cols-1 mt-20 md:mt-20 md:grid-cols-3 mx-10 gap-8 ">
+            <div className="grid grid-cols-1 my-20 md:mt-20 md:grid-cols-3 mx-10 gap-8 ">
                 {products.map((product) => (
                     <CategoriesCard
                         product={product}

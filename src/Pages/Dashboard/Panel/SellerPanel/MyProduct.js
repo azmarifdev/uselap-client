@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import axios from 'axios'
+import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 
@@ -49,11 +49,6 @@ const MyProduct = () => {
         // })
         //     .then(res => console.log(res))
         // .catch(err => console.log(err))
-        
-
-
-
-
 
         fetch(`${process.env.REACT_APP_LOCALHOST}/advertise/${id}`, {
             method: 'PATCH',
@@ -65,13 +60,11 @@ const MyProduct = () => {
             .then((res) => res.json())
             .then((data) => {
                 // console.log(data);
-                // if (data.modifiedCount) {
-                //     toast.success('Advertise successfully');
-                // }
+                if (data.modifiedCount) {
+                    toast.success('Advertise successfully');
+                }
             })
             .catch((err) => console.error(err.message));
-    
-    
     };
 
     return (
@@ -99,7 +92,9 @@ const MyProduct = () => {
                                         <>
                                             <button
                                                 onClick={() =>
-                                                    handleAdvertise(product?._id)
+                                                    handleAdvertise(
+                                                        product?._id,
+                                                    )
                                                 }
                                                 className="btn btn-xs btn-primary">
                                                 Advertise

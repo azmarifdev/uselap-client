@@ -4,7 +4,7 @@ import Banner from './Banner';
 
 import Category from './Category/Category';
 import BestSells from './Feature/BestSells';
-import Feature from './Feature/Feature';
+// import Feature from './Feature/Feature';
 
 const Home = () => {
     return (
@@ -13,7 +13,7 @@ const Home = () => {
             <Advertise/>
             <Category />
             <BestSells/>
-            <Feature />
+            {/* <Feature /> */}
         </div>
     );
 };
