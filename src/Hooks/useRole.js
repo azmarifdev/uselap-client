@@ -1,19 +1,16 @@
 import { useEffect, useState } from 'react';
 
 const useRole = (email) => {
-    const [isRole, setIsRole] = useState('');
-    // const [isAdminLoading, setIsAdminLoading] = (true)
-    // console.log(setIsRole);
-
+    const [ isRole, setIsRole ] = useState('');
     useEffect(() => {
         fetch(`${process.env.REACT_APP_LOCALHOST}/users/${email}`)
             .then((res) => res.json())
             .then((data) => {
                 setIsRole(data.role);
-                // setIsAdminLoading(false);
-                // console.log(data.role);
+                console.log(data.role);
             });
-    }, [email]);
+    }, [ email ]);
+    console.log(isRole);
     return [isRole];
 };
 

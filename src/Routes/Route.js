@@ -18,6 +18,8 @@ import ErrorPage from '../Pages/Share/ErrorPage';
 import Payment from '../Pages/Dashboard/Panel/BuyerPanel/Payment';
 import PrivateRoute from './PrivateRoute';
 import AdminRoute from './AdminRoute';
+import BuyerRoute from './BuyerRoute';
+import SellerRoute from './SellerRoute';
 
 const router = createBrowserRouter([
     {
@@ -65,31 +67,59 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/all-buyer',
-                element: <AllBuyer />,
+                element: (
+                    <AdminRoute>
+                        <AllBuyer />
+                    </AdminRoute>
+                ),
             },
             {
                 path: '/dashboard/all-seller',
-                element: <AllSeller />,
+                element: (
+                    <AdminRoute>
+                        <AllSeller />
+                    </AdminRoute>
+                ),
             },
             {
                 path: '/dashboard/all-product',
-                element: <AllProduct />,
+                element: (
+                    <AdminRoute>
+                        <AllProduct />
+                    </AdminRoute>
+                ),
             },
             {
                 path: '/dashboard/report',
-                element: <Report />,
+                element: (
+                    <AdminRoute>
+                        <Report />
+                    </AdminRoute>
+                ),
             },
             {
                 path: '/dashboard/add-product',
-                element: <AddProduct />,
+                element: (
+                    <SellerRoute>
+                        <AddProduct />
+                    </SellerRoute>
+                ),
             },
             {
                 path: '/dashboard/my-product',
-                element: <MyProduct />,
+                element: (
+                    <SellerRoute>
+                        <MyProduct />
+                    </SellerRoute>
+                ),
             },
             {
                 path: '/dashboard/my-order',
-                element: <MyOrder />,
+                element: (
+                    <BuyerRoute>
+                        <MyOrder />
+                    </BuyerRoute>
+                ),
             },
             {
                 path: '/dashboard/payment/:id',

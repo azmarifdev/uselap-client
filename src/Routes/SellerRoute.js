@@ -4,7 +4,7 @@ import { AuthContext } from '../Context/AuthProvider';
 import useRole from '../Hooks/useRole';
 import Spinner from '../Pages/Share/Spinner';
 
-const AdminRoute = ({ children }) => {
+const SellerRoute = ({ children }) => {
     const location = useLocation();
     const { user } = useContext(AuthContext);
     const [isRole] = useRole(user?.email);
@@ -13,12 +13,12 @@ const AdminRoute = ({ children }) => {
     if (!isRole) {
         return <Spinner />;
     }
-    
-    if (user && isRole === 'Admin') {
+
+    if (user && isRole === 'Seller') {
         return children;
     }
 
     return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
 };
 
-export default AdminRoute;
+export default SellerRoute;
