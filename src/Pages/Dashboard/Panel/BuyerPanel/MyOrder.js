@@ -17,6 +17,13 @@ const MyOrder = () => {
         queryFn: async () => {
             const res = await fetch(
                 `${process.env.REACT_APP_LOCALHOST}/bookings/${user?.email}`,
+                {
+                    headers: {
+                        authorization: `bearer ${localStorage.getItem(
+                            'accessToken',
+                        )}`,
+                    },
+                },
             );
             const data = await res.json();
             return data;

@@ -13,7 +13,7 @@ const DashboardLayout = () =>
         }, [pathname]);
     const { user } = useContext(AuthContext);
     const [isRole] = useRole(user?.email);
-    // console.log(isRole);
+    console.log(isRole);
 
     const admin = (
         <>

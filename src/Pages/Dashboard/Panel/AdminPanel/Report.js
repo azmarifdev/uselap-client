@@ -15,6 +15,13 @@ const Report = () => {
         queryFn: async () => {
             const res = await fetch(
                 `${process.env.REACT_APP_LOCALHOST}/report-item?report=true`,
+                {
+                    headers: {
+                        authorization: `bearer ${localStorage.getItem(
+                            'accessToken',
+                        )}`,
+                    },
+                },
             );
             const data = res.json();
             return data;

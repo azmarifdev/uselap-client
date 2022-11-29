@@ -15,6 +15,13 @@ const AllSeller = () => {
         queryFn: async () => {
             const res = await fetch(
                 `${process.env.REACT_APP_LOCALHOST}/sellers`,
+                {
+                    headers: {
+                        authorization: `bearer ${localStorage.getItem(
+                            'accessToken',
+                        )}`,
+                    },
+                },
             );
             const data = res.json();
             return data;

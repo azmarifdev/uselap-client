@@ -1,3 +1,42 @@
+http://localhost:7000/products/elonmusk@gmail.com
+http://localhost:7000/products/seller@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import { useEffect, useState } from 'react';
 
 const useRole = (email) => {

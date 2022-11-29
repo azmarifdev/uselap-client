@@ -18,8 +18,14 @@ const MyProduct = () => {
         queryFn: async () => {
             const res = await fetch(
                 `${process.env.REACT_APP_LOCALHOST}/products/${user?.email}`,
+                { 
+                    // jwt1
+                    headers: {
+                        authorization: `bearer ${localStorage.getItem('accessToken')}`,
+                    },
+                },
             );
-            const data = res.json();
+            const data = await res.json();
             return data;
         },
     });
@@ -63,7 +69,7 @@ const MyProduct = () => {
                 // console.log(data);
                 if (data.modifiedCount) {
                     toast.success('Advertise successfully');
-                    refetch()
+                    refetch();
                 }
             })
             .catch((err) => console.error(err.message));
@@ -113,7 +119,7 @@ const MyProduct = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {products?.map((product, i) => (
+                                    {products.length && products?.map((product, i) => (
                                         <tr key={product._id}>
                                             <th>{i + 1}</th>
                                             <td>{product.productName}</td>

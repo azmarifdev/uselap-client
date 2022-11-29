@@ -10,6 +10,7 @@ const useRole = (email) => {
             .then((res) => res.json())
             .then((data) => {
                 setIsRole(data.role);
+                // setIsAdminLoading(false);
                 // console.log(data.role);
             });
     }, [email]);

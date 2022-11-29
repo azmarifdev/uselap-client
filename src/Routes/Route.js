@@ -17,6 +17,7 @@ import Blog from '../Pages/Blog';
 import ErrorPage from '../Pages/Share/ErrorPage';
 import Payment from '../Pages/Dashboard/Panel/BuyerPanel/Payment';
 import PrivateRoute from './PrivateRoute';
+import AdminRoute from './AdminRoute';
 
 const router = createBrowserRouter([
     {
