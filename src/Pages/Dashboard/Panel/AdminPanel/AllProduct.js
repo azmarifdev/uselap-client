@@ -78,26 +78,27 @@ const AllProduct = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {allProducts?.map((product, i) => (
-                                        <tr key={product._id}>
-                                            <th>{i + 1}</th>
-                                            <td>{product.productName}</td>
-                                            <td>{product.name}</td>
-                                            <td>{product.email}</td>
-                                            <td>{product.price}</td>
-                                            <td>
-                                                <button
-                                                    onClick={() =>
-                                                        handleDelete(
-                                                            product._id,
-                                                        )
-                                                    }
-                                                    className="btn btn-xs btn-accent">
-                                                    Delete
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    ))}
+                                    {allProducts.length &&
+                                        allProducts?.map((product, i) => (
+                                            <tr key={product._id}>
+                                                <th>{i + 1}</th>
+                                                <td>{product.productName}</td>
+                                                <td>{product.name}</td>
+                                                <td>{product.email}</td>
+                                                <td>{product.price}</td>
+                                                <td>
+                                                    <button
+                                                        onClick={() =>
+                                                            handleDelete(
+                                                                product._id,
+                                                            )
+                                                        }
+                                                        className="btn btn-xs btn-accent">
+                                                        Delete
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        ))}
                                 </tbody>
                             </table>
                         </div>

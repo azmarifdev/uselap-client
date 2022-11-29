@@ -78,36 +78,39 @@ const Report = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {reportedItem?.map((reported, i) => (
-                                    <tr key={reported._id}>
-                                        <th>{i + 1}</th>
-                                        <td>
-                                            <div className="avatar">
-                                                <div className="mask mask-squircle w-12 h-12">
-                                                    <img
-                                                        src={
-                                                            reported.productImage
-                                                        }
-                                                        alt="Avatar Tailwind CSS Component"
-                                                    />
+                                {reportedItem.length &&
+                                    reportedItem?.map((reported, i) => (
+                                        <tr key={reported._id}>
+                                            <th>{i + 1}</th>
+                                            <td>
+                                                <div className="avatar">
+                                                    <div className="mask mask-squircle w-12 h-12">
+                                                        <img
+                                                            src={
+                                                                reported.productImage
+                                                            }
+                                                            alt="Avatar Tailwind CSS Component"
+                                                        />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </td>
-                                        <td>{reported.productName}</td>
-                                        <td>{reported.price}tk</td>
-                                        <td>{reported.name}</td>
-                                        <td>{reported.email}</td>
-                                        <td>
-                                            <button
-                                                onClick={() =>
-                                                    handleDelete(reported._id)
-                                                }
-                                                className="btn btn-xs">
-                                                Delete
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))}
+                                            </td>
+                                            <td>{reported.productName}</td>
+                                            <td>{reported.price}tk</td>
+                                            <td>{reported.name}</td>
+                                            <td>{reported.email}</td>
+                                            <td>
+                                                <button
+                                                    onClick={() =>
+                                                        handleDelete(
+                                                            reported._id,
+                                                        )
+                                                    }
+                                                    className="btn btn-xs">
+                                                    Delete
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    ))}
                             </tbody>
                         </table>
                     </div>

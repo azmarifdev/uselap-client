@@ -53,7 +53,8 @@ const AllBuyer = () => {
                     <div className="flex justify-center mb-8">
                         <div className="mt-5 h-1/2">
                             <Lottie
-                                className="mx-auto"all
+                                className="mx-auto"
+                                all
                                 animationData={noData}
                                 loop={true}
                             />
@@ -75,22 +76,25 @@ const AllBuyer = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {buyers?.map((buyer, i) => (
-                                        <tr key={buyer._id}>
-                                            <th>{i + 1}</th>
-                                            <td>{buyer.name}</td>
-                                            <td>{buyer.email}</td>
-                                            <td>
-                                                <button
-                                                    onClick={() =>
-                                                        handleDelete(buyer._id)
-                                                    }
-                                                    className="btn btn-xs btn-accent">
-                                                    Delete
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    ))}
+                                    {buyers.length &&
+                                        buyers?.map((buyer, i) => (
+                                            <tr key={buyer._id}>
+                                                <th>{i + 1}</th>
+                                                <td>{buyer.name}</td>
+                                                <td>{buyer.email}</td>
+                                                <td>
+                                                    <button
+                                                        onClick={() =>
+                                                            handleDelete(
+                                                                buyer._id,
+                                                            )
+                                                        }
+                                                        className="btn btn-xs btn-accent">
+                                                        Delete
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        ))}
                                 </tbody>
                             </table>
                         </div>
