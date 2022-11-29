@@ -8,7 +8,7 @@ const AdminRoute = ({ children }) => {
     const location = useLocation();
     const { user } = useContext(AuthContext);
     const [isRole] = useRole(user?.email);
-    console.log(isRole, 'from AdminRoute');
+    // console.log(isRole, 'from AdminRoute');
 
     if (!isRole) {
         return <Spinner />;

@@ -5,8 +5,7 @@ import CategoriesCard from './CategoriesCard';
 import Lottie from 'lottie-react';
 import noData from '../../../../../assets/noData.json';
 
-const CategoriesData = () =>
-{
+const CategoriesData = () => {
     const products = useLoaderData();
     // console.log(products);
     const [bookingData, setBookingData] = useState(null);

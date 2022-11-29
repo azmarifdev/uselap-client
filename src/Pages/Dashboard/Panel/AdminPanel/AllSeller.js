@@ -28,19 +28,19 @@ const AllSeller = () => {
         },
     });
 
-    const handleVerify = (id) => {
-        fetch(`${process.env.REACT_APP_LOCALHOST}/users/verified/${id}`, {
-            method: 'PUT',
-            headers: { 'content-type': 'application/json' },
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.modifiedCount > 0) {
-                    toast.success('Seller verified successfully');
-                    refetch();
-                }
-            });
-    };
+    // const handleVerify = (id) => {
+    //     fetch(`${process.env.REACT_APP_LOCALHOST}/users/verified/${id}`, {
+    //         method: 'PUT',
+    //         headers: { 'content-type': 'application/json' },
+    //     })
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //             if (data.modifiedCount > 0) {
+    //                 toast.success('Seller verified successfully');
+    //                 refetch();
+    //             }
+    //         });
+    // };
 
     const handleDelete = (id) => {
         fetch(`${process.env.REACT_APP_LOCALHOST}/sellers/${id}`, {
@@ -91,31 +91,30 @@ const AllSeller = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {sellers.length && sellers?.map((seller, i) => (
-                                        <tr key={seller._id}>
-                                            <th>{i + 1}</th>
-                                            <td>{seller.name}</td>
-                                            <td>{seller.email}</td>
-                                            <td>
-                                                <button
-                                                    onClick={() =>
-                                                        handleVerify(seller._id)
-                                                    }
-                                                    className="btn btn-xs btn-accent">
-                                                    Verify
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <button
-                                                    onClick={() =>
-                                                        handleDelete(seller._id)
-                                                    }
-                                                    className="btn btn-xs btn-accent">
-                                                    Delete
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    ))}
+                                    {sellers.length &&
+                                        sellers?.map((seller, i) => (
+                                            <tr key={seller._id}>
+                                                <th>{i + 1}</th>
+                                                <td>{seller.name}</td>
+                                                <td>{seller.email}</td>
+                                                <td>
+                                                    <button className="btn btn-xs btn-accent">
+                                                        Verify
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button
+                                                        onClick={() =>
+                                                            handleDelete(
+                                                                seller._id,
+                                                            )
+                                                        }
+                                                        className="btn btn-xs btn-accent">
+                                                        Delete
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        ))}
                                 </tbody>
                             </table>
                         </div>

@@ -7,10 +7,10 @@ const useRole = (email) => {
             .then((res) => res.json())
             .then((data) => {
                 setIsRole(data.role);
-                console.log(data.role);
+                // console.log(data.role);
             });
     }, [ email ]);
-    console.log(isRole);
+    // console.log(isRole);
     return [isRole];
 };
 
