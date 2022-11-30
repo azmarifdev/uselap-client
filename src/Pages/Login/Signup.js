@@ -17,7 +17,7 @@ const Signup = () => {
     const { createUser, updateUser, setLoading, signInWithGoogle } =
         useContext(AuthContext);
     const [signUpError, setSignUPError] = useState('');
-    const [ createUserEmail, setCreateUserEmail ] = useState('');
+    const [createUserEmail, setCreateUserEmail] = useState('');
     // console.log(createUserEmail, "21");
 
     const [token] = useToken(createUserEmail);
@@ -121,8 +121,6 @@ const Signup = () => {
                     UseLap
                 </h1>
 
-
-
                 <div className="flex items-center justify-center mt-6">
                     <Link
                         to="/login"
@@ -137,7 +135,6 @@ const Signup = () => {
                     </Link>
                 </div>
 
-                
                 <form onSubmit={handleSubmit(handleSignup)} className="mt-6">
                     <div>
                         <label

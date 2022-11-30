@@ -37,12 +37,35 @@ const Login = () => {
                 setLoginError(error.message);
             });
     };
-    const handleGoogleSignin = () => {
+    const handleGoogleSignIn = () => {
         signInWithGoogle().then((result) => {
-            // console.log(result.user);
-            setLoading(false);
-            navigate(from, { replace: true });
+            const user = result.user;
+            // console.log(user);
+            saveUserSocialLogin(user?.displayName, user?.email, user?.photoURL);
+            // setLoading(false);
+            // navigate('/');
         });
+    };
+    const saveUserSocialLogin = (name, email, image) => {
+        const user = {
+            name: name,
+            email: email,
+            role: 'Buyer',
+            image: image,
+        };
+        // console.log(user);
+        fetch(`${process.env.REACT_APP_LOCALHOST}/users`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(user),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                setLoginUserEmail(email);
+            })
+            .catch((error) => console.error(error));
     };
     return (
         <div className="mx-auto my-[100px] ">
@@ -140,7 +163,7 @@ const Login = () => {
 
                 <div className="flex items-center mt-6 -mx-2">
                     <button
-                        onClick={handleGoogleSignin}
+                        onClick={handleGoogleSignIn}
                         type="button"
                         className="flex items-center justify-center w-full px-6 py-2 mx-2 text-sm font-medium text-white transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:bg-blue-400 focus:outline-none">
                         <svg

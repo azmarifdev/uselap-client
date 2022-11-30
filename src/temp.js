@@ -1,5 +1,6 @@
-http://localhost:7000/products/elonmusk@gmail.com
-http://localhost:7000/products/seller@gmail.com
+https://uselap-server.vercel.app
+http://localhost:7000
+https://uselap-25727.web.app/
 
 uselap@admin.com
 
