@@ -1,17 +1,23 @@
 http://localhost:7000/products/elonmusk@gmail.com
 http://localhost:7000/products/seller@gmail.com
 
+uselap@admin.com
 
+ruhulamin@seller.com
+rifat@seller.com
+shahriar@seller.com
+shahed@seller.com
+abdullah@seller.com
+azmarif@seller.com
+samiul@seller.com
+afnan@seller.com
+maruf@seller.com
 
-
-
-
-
-
-
-
-
-
+elonmusk@buyer.com
+billgets@buyer.com
+arianagrande@buyer.com
+billie ellies@buyer.com
+justinbaiber@buyer.com
 
 
 
