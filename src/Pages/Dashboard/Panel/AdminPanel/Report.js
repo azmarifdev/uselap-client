@@ -39,9 +39,10 @@ const Report = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                // console.log(data);
-                toast.success('Delete successfully');
-                refetch();
+                if (data.deletedCount) {
+                    toast.success('Delete successfully');
+                    refetch();
+                }
             });
     };
 

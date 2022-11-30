@@ -28,19 +28,7 @@ const AllSeller = () => {
         },
     });
 
-    // const handleVerify = (id) => {
-    //     fetch(`${process.env.REACT_APP_LOCALHOST}/users/verified/${id}`, {
-    //         method: 'PUT',
-    //         headers: { 'content-type': 'application/json' },
-    //     })
-    //         .then((res) => res.json())
-    //         .then((data) => {
-    //             if (data.modifiedCount > 0) {
-    //                 toast.success('Seller verified successfully');
-    //                 refetch();
-    //             }
-    //         });
-    // };
+    // console.log(sellers);
 
     const handleDelete = (id) => {
         fetch(`${process.env.REACT_APP_LOCALHOST}/sellers/${id}`, {
@@ -49,9 +37,10 @@ const AllSeller = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                // console.log(data);
-                toast.success('Delete successfully');
-                refetch();
+                if (data.deletedCount) {
+                    toast.success('Delete successfully');
+                    refetch();
+                }
             });
     };
 

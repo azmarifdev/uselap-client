@@ -33,12 +33,12 @@ const BookingModal = ({ setBookingData, bookingData }) => {
             body: JSON.stringify(bookings),
         })
             .then((res) => res.json())
-            .then((data) => {
-                if (data.acknowledged) {
+            .then((data) =>
+            {
+                // console.log(data);
+                if (data.insertedId) {
                     setBookingData(null);
                     toast.success('Booking Successfully');
-                } else {
-                    toast.error(data.message);
                 }
             });
     };

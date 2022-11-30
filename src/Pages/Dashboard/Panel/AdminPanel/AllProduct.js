@@ -40,9 +40,10 @@ const AllProduct = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                // console.log(data);
-                toast.success('delete successfully');
-                refetch();
+                if (data.deletedCount) {
+                    toast.success('Delete successfully');
+                    refetch();
+                }
             });
     };
     return (
@@ -70,6 +71,7 @@ const AllProduct = () => {
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>Image</th>
                                         <th>Product Name</th>
                                         <th>Seller Name</th>
                                         <th>Seller Email</th>
@@ -82,6 +84,18 @@ const AllProduct = () => {
                                         allProducts?.map((product, i) => (
                                             <tr key={product._id}>
                                                 <th>{i + 1}</th>
+                                                <td>
+                                                    <div className="avatar">
+                                                        <div className="mask mask-squircle w-12 h-12">
+                                                            <img
+                                                                src={
+                                                                    product.productImage
+                                                                }
+                                                                alt="Avatar Tailwind CSS Component"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </td>
                                                 <td>{product.productName}</td>
                                                 <td>{product.name}</td>
                                                 <td>{product.email}</td>

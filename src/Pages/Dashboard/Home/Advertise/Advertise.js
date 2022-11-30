@@ -27,9 +27,10 @@ const Advertise = () => {
                             <hr className="mt-1 border-2" />
                         </div>
                         <div className="relative w-full border-2 shadow-2xl flex gap-4 py-6 overflow-x-auto">
-                            {advertised?.map((advertise) => (
+                            {advertised?.map((advertise, i) => (
                                 <>
                                     <img
+                                        key={i}
                                         className="h-56 w-56 aspect-video rounded-2xl object-cover object-center bg-gray-500"
                                         src={advertise.productImage}
                                         alt=""

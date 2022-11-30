@@ -73,8 +73,10 @@ const AddProduct = () => {
                     .then((res) => res.json())
                     .then((data) => {
                         // console.log(data);
-                        toast.success('Product Submited successfully');
-                        navigate('/dashboard/my-product');
+                        if (data.insertedId) {
+                            toast.success('Product Submited successfully');
+                            navigate('/dashboard/my-product');
+                        }
                     });
             });
     };

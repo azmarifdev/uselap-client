@@ -85,10 +85,11 @@ const CheckoutForm = ({ paymentData }) => {
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    toast.success('payment successfully');
-                    // console.log(data);
-                    setStripeSuccess('congrats!, Your payment completed');
-                    setStripeId(paymentIntent.id);
+                    if (data.acknowledged) {
+                        toast.success('payment successfully');
+                        setStripeSuccess('congrats!, Your payment completed');
+                        setStripeId(paymentIntent.id);
+                    }
                 });
         }
 
@@ -135,7 +136,9 @@ const CheckoutForm = ({ paymentData }) => {
                     </div>
                     <div>
                         <Link to="/dashboard/my-order">
-                            <button className="btn btn-accent my-3 btn-sm">Go Back</button>
+                            <button className="btn btn-accent my-3 btn-sm">
+                                Go Back
+                            </button>
                         </Link>
                     </div>
                 </>
