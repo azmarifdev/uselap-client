@@ -5,11 +5,11 @@ https://uselap-25727.web.app/
 uselap@admin.com
 
 ruhulamin@seller.com
-rifat@seller.com
+rifat@seller.com jhj
 shahriar@seller.com
 shahed@seller.com
 abdullah@seller.com
-azmarif@seller.com
+azmarif@seller.comvbc
 samiul@seller.com
 afnan@seller.com
 maruf@seller.com
