@@ -9,8 +9,6 @@ const CheckoutForm = ({ paymentData }) => {
     const [cardError, setCardError] = useState('');
     const [clientSecret, setClientSecret] = useState('');
     const [transactionId, setTransactionId] = useState('');
-    const [stripeSuccess, setStripeSuccess] = useState(' ');
-    const [stripeId, setStripeId] = useState(' ');
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState('');
     const accessToken = localStorage.getItem('accessToken');
@@ -40,7 +38,7 @@ const CheckoutForm = ({ paymentData }) => {
         if (card === null) {
             return;
         }
-        const { error, paymentMethod } = await stripe.createPaymentMethod({
+        const { error } = await stripe.createPaymentMethod({
             type: 'card',
             card,
         });
@@ -94,8 +92,6 @@ const CheckoutForm = ({ paymentData }) => {
                 .then((data) => {
                     if (data.acknowledged) {
                         toast.success('payment successfully');
-                        setStripeSuccess('congrats!, Your payment completed');
-                        setStripeId(paymentIntent.id);
                     }
                 });
         }

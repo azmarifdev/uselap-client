@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../../../../Context/AuthProvider';
 
 const CategoriesCard = ({ product, setBookingData }) => {
     const {
