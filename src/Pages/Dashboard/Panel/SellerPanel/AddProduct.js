@@ -1,23 +1,25 @@
-import React from 'react';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../Context/AuthProvider';
+
+const inputClass =
+    'mt-2 w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm text-slate-700 focus:border-slate-500 focus:outline-none';
 
 const AddProduct = () => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    let time = new Date();
+    const time = new Date();
     let hour = time.getHours();
     if (hour > 12) {
         hour = hour - 12;
     }
 
-    let minute = time.getMinutes();
-    let date = time.getDate();
-    let month = time.getMonth();
-    let year = time.getFullYear();
+    const minute = time.getMinutes();
+    const date = time.getDate();
+    const month = time.getMonth();
+    const year = time.getFullYear();
 
     const handleProduct = (e) => {
         e.preventDefault();
@@ -32,7 +34,7 @@ const AddProduct = () => {
         const quality = e.target.quality.value;
         const textarea = e.target.textarea.value;
 
-        toast.success('please wait for submit');
+        toast.success('Please wait, submitting product...');
 
         const image = e.target.productPhoto.files[0];
         const formData = new FormData();
@@ -65,6 +67,7 @@ const AddProduct = () => {
                     date: `${date}/${month}/${year}`,
                     time: `${hour}:${minute}`,
                 };
+
                 fetch(`${process.env.REACT_APP_LOCALHOST}/products`, {
                     method: 'POST',
                     headers: { 'content-type': 'application/json' },
@@ -72,198 +75,211 @@ const AddProduct = () => {
                 })
                     .then((res) => res.json())
                     .then((data) => {
-                        // console.log(data);
                         if (data.insertedId) {
-                            toast.success('Product Submited successfully');
+                            toast.success('Product submitted successfully');
                             navigate('/dashboard/my-product');
                         }
                     });
             });
     };
+
     return (
-        <div>
-            <section className="p-6  bg-base-100 rounded-md shadow-2xl mt-0 mb-10 md:mt-10">
-                <h1 className="text-3xl my-2 uppercase text-center font-bold text-gray-800">
-                    Add Product
-                </h1>
-                <form onSubmit={handleProduct}>
-                    <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
-                        <div>
-                            <label className="text-gray-800" for="name">
-                                Seller Name
-                            </label>
-                            <input
-                                id="name"
-                                name="name"
-                                defaultValue={user?.displayName}
-                                readOnly
-                                type="text"
-                                className="block w-full px-4 py-2 mt-2 text-gray-800 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
-                            />
-                        </div>
-                        <div>
-                            <label className="text-gray-800" for="emailAddress">
-                                Seller Email
-                            </label>
-                            <input
-                                id="emailAddress"
-                                type="email"
-                                name="email"
-                                defaultValue={user?.email}
-                                readOnly
-                                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md   focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
-                            />
-                        </div>
-                        <div>
-                            <label className="text-gray-800" for="product">
-                                Product Name
-                            </label>
-                            <input
-                                id="product"
-                                type="text"
-                                name="product"
-                                required
-                                placeholder="Product Name"
-                                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md   focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
-                            />
-                        </div>
-                        <div>
-                            <label className="text-gray-800" for="price">
-                                Product Price
-                            </label>
-                            <input
-                                id="price"
-                                type="number"
-                                required
-                                name="price"
-                                placeholder="Price"
-                                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md   focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
-                            />
-                        </div>
-                        <div>
-                            <label className="text-gray-800" for="useTime">
-                                Used Time
-                            </label>
-                            <input
-                                id="useTime"
-                                required
-                                type="text"
-                                name="useTime"
-                                placeholder="Used time"
-                                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md   focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
-                            />
-                        </div>
-                        <div>
-                            <label className="text-gray-800" for="purchaseYear">
-                                Purchase year
-                            </label>
-                            <input
-                                id="purchaseYear"
-                                type="date"
-                                name="purchaseYear"
-                                required
-                                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md   focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
-                            />
-                        </div>
-                        <div>
-                            <label className="text-gray-800" for="purchase">
-                                Original Price
-                            </label>
-                            <input
-                                id="purchase"
-                                type="number"
-                                required
-                                name="purchase"
-                                placeholder="Original price"
-                                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md   focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
-                            />
-                        </div>
-                        <div>
-                            <label className="text-gray-800" for="location">
-                                Location
-                            </label>
-                            <input
-                                id="location"
-                                type="text"
-                                name="location"
-                                required
-                                placeholder="Location"
-                                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md   focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
-                            />
-                        </div>
-                        <div>
-                            <label className="text-gray-800" for="phone">
-                                Seller Phone Number
-                            </label>
-                            <input
-                                id="phone"
-                                type="number"
-                                name="phone"
-                                required
-                                placeholder="Seller Phone Number"
-                                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md   focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
-                            />
-                        </div>
-                        <div>
-                            <label className="text-gray-800" for="quality">
-                                Product Quality
-                            </label>
-                            <select
-                                name="quality"
-                                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md   focus:border-blue-500  focus:outline-none focus:ring">
-                                <option selected>Excellent</option>
-                                <option>Good</option>
-                                <option>Fair</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label className="text-gray-800" for="category">
-                                Category
-                            </label>
-                            <select
-                                name="category"
-                                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md   focus:border-blue-500  focus:outline-none focus:ring">
-                                <option selected>Apple</option>
-                                <option>HP</option>
-                                <option>Dell</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label className="text-gray-800" for="photo">
-                                Photo
-                            </label>
-                            <input
-                                id="photo"
-                                type="file"
-                                name="productPhoto"
-                                required
-                                className="block w-full px-4 py-1.5 mt-2 text-gray-700 bg-white border rounded-md     border-gray-600 focus:border-blue-400   focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                            />
-                        </div>
-                    </div>
-                    <div className="mt-5">
-                        <label
-                            className="text-gray-800"
-                            for="passwordConfirmation">
-                            Description
+        <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm md:p-7">
+            <div className="mb-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                    Seller Panel
+                </p>
+                <h1 className="mt-1 text-2xl font-bold text-slate-900">Add Product</h1>
+                <p className="mt-1 text-sm text-slate-600">
+                    Add complete product details to make your listing trusted and easier to sell.
+                </p>
+            </div>
+
+            <form onSubmit={handleProduct}>
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <div>
+                        <label className="text-sm font-semibold text-slate-700" htmlFor="name">
+                            Seller Name
                         </label>
-                        <textarea
-                            id="textarea"
-                            type="textarea"
+                        <input
+                            id="name"
+                            name="name"
+                            defaultValue={user?.displayName}
+                            readOnly
+                            type="text"
+                            className={`${inputClass} bg-slate-50`}
+                        />
+                    </div>
+
+                    <div>
+                        <label className="text-sm font-semibold text-slate-700" htmlFor="emailAddress">
+                            Seller Email
+                        </label>
+                        <input
+                            id="emailAddress"
+                            type="email"
+                            name="email"
+                            defaultValue={user?.email}
+                            readOnly
+                            className={`${inputClass} bg-slate-50`}
+                        />
+                    </div>
+
+                    <div>
+                        <label className="text-sm font-semibold text-slate-700" htmlFor="product">
+                            Product Name
+                        </label>
+                        <input
+                            id="product"
+                            type="text"
+                            name="product"
                             required
-                            placeholder="write your product information"
-                            className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md   focus:border-blue-500 focus:outline-none focus:ring"></textarea>
+                            placeholder="Product name"
+                            className={inputClass}
+                        />
                     </div>
-                    <div className="flex justify-center mt-6">
-                        <button
-                            type="submit"
-                            className="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600">
-                            Save
-                        </button>
+
+                    <div>
+                        <label className="text-sm font-semibold text-slate-700" htmlFor="price">
+                            Product Price
+                        </label>
+                        <input
+                            id="price"
+                            type="number"
+                            required
+                            name="price"
+                            placeholder="Price"
+                            className={inputClass}
+                        />
                     </div>
-                </form>
-            </section>
-        </div>
+
+                    <div>
+                        <label className="text-sm font-semibold text-slate-700" htmlFor="useTime">
+                            Used Time
+                        </label>
+                        <input
+                            id="useTime"
+                            required
+                            type="text"
+                            name="useTime"
+                            placeholder="e.g. 1 year"
+                            className={inputClass}
+                        />
+                    </div>
+
+                    <div>
+                        <label className="text-sm font-semibold text-slate-700" htmlFor="purchaseYear">
+                            Purchase Date
+                        </label>
+                        <input
+                            id="purchaseYear"
+                            type="date"
+                            name="purchaseYear"
+                            required
+                            className={inputClass}
+                        />
+                    </div>
+
+                    <div>
+                        <label className="text-sm font-semibold text-slate-700" htmlFor="purchase">
+                            Original Price
+                        </label>
+                        <input
+                            id="purchase"
+                            type="number"
+                            required
+                            name="purchase"
+                            placeholder="Original price"
+                            className={inputClass}
+                        />
+                    </div>
+
+                    <div>
+                        <label className="text-sm font-semibold text-slate-700" htmlFor="location">
+                            Location
+                        </label>
+                        <input
+                            id="location"
+                            type="text"
+                            name="location"
+                            required
+                            placeholder="Location"
+                            className={inputClass}
+                        />
+                    </div>
+
+                    <div>
+                        <label className="text-sm font-semibold text-slate-700" htmlFor="phone">
+                            Seller Phone Number
+                        </label>
+                        <input
+                            id="phone"
+                            type="number"
+                            name="phone"
+                            required
+                            placeholder="Phone number"
+                            className={inputClass}
+                        />
+                    </div>
+
+                    <div>
+                        <label className="text-sm font-semibold text-slate-700" htmlFor="quality">
+                            Product Quality
+                        </label>
+                        <select id="quality" name="quality" className={inputClass} defaultValue="Excellent">
+                            <option value="Excellent">Excellent</option>
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label className="text-sm font-semibold text-slate-700" htmlFor="category">
+                            Category
+                        </label>
+                        <select id="category" name="category" className={inputClass} defaultValue="Apple">
+                            <option value="Apple">Apple</option>
+                            <option value="HP">HP</option>
+                            <option value="Dell">Dell</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label className="text-sm font-semibold text-slate-700" htmlFor="photo">
+                            Product Photo
+                        </label>
+                        <input
+                            id="photo"
+                            type="file"
+                            name="productPhoto"
+                            required
+                            className={inputClass}
+                        />
+                    </div>
+                </div>
+
+                <div className="mt-4">
+                    <label className="text-sm font-semibold text-slate-700" htmlFor="textarea">
+                        Description
+                    </label>
+                    <textarea
+                        id="textarea"
+                        name="textarea"
+                        required
+                        placeholder="Write your product details"
+                        className="mt-2 block h-28 w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm text-slate-700 focus:border-slate-500 focus:outline-none"
+                    />
+                </div>
+
+                <div className="mt-6 flex justify-end">
+                    <button
+                        type="submit"
+                        className="rounded-lg bg-slate-900 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-700">
+                        Save Product
+                    </button>
+                </div>
+            </form>
+        </section>
     );
 };
 

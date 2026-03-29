@@ -13,18 +13,22 @@ const CheckoutForm = ({ paymentData }) => {
     const [stripeId, setStripeId] = useState(' ');
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState('');
+    const accessToken = localStorage.getItem('accessToken');
     const stripe = useStripe();
     const elements = useElements();
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_LOCALHOST}/create-payment-intent`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `bearer ${accessToken}`,
+            },
             body: JSON.stringify({ price }),
         })
             .then((res) => res.json())
             .then((data) => setClientSecret(data.clientSecret));
-    }, [price]);
+    }, [accessToken, price]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -80,7 +84,10 @@ const CheckoutForm = ({ paymentData }) => {
         if (paymentIntent.status === 'succeeded') {
             fetch(`${process.env.REACT_APP_LOCALHOST}/payments`, {
                 method: 'POST',
-                headers: { 'content-type': 'application/json' },
+                headers: {
+                    'content-type': 'application/json',
+                    authorization: `bearer ${accessToken}`,
+                },
                 body: JSON.stringify(payment),
             })
                 .then((res) => res.json())

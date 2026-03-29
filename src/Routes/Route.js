@@ -16,6 +16,8 @@ import CategoriesData from '../Pages/Dashboard/Home/Category/Categories/Categori
 import Blog from '../Pages/Blog';
 import ErrorPage from '../Pages/Share/ErrorPage';
 import Payment from '../Pages/Dashboard/Panel/BuyerPanel/Payment';
+import Products from '../Pages/Products';
+import ProductView from '../Pages/ProductView';
 import PrivateRoute from './PrivateRoute';
 import AdminRoute from './AdminRoute';
 import BuyerRoute from './BuyerRoute';
@@ -42,6 +44,19 @@ const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog />,
+            },
+
+            {
+                path: '/products',
+                element: <Products />,
+            },
+            {
+                path: '/products/:id',
+                element: <ProductView />,
+                loader: ({ params }) =>
+                    fetch(
+                        `${process.env.REACT_APP_LOCALHOST}/products-public/${params.id}`,
+                    ),
             },
             {
                 path: '/categories-data/:category',
@@ -127,6 +142,11 @@ const router = createBrowserRouter([
                 loader: ({ params }) =>
                     fetch(
                         `${process.env.REACT_APP_LOCALHOST}/booking/${params.id}`,
+                        {
+                            headers: {
+                                authorization: `bearer ${localStorage.getItem('accessToken')}`,
+                            },
+                        },
                     ),
             },
         ],

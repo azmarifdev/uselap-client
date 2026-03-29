@@ -36,7 +36,10 @@ const AllProduct = () => {
     const handleDelete = (id) => {
         fetch(`${process.env.REACT_APP_LOCALHOST}/allProducts/${id}`, {
             method: 'DELETE',
-            headers: { 'content-type': 'application/json' },
+            headers: {
+                'content-type': 'application/json',
+                authorization: `bearer ${localStorage.getItem('accessToken')}`,
+            },
         })
             .then((res) => res.json())
             .then((data) => {

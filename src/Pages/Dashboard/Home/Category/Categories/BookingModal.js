@@ -5,6 +5,7 @@ import { AuthContext } from '../../../../../Context/AuthProvider';
 const BookingModal = ({ setBookingData, bookingData }) => {
     const { user } = useContext(AuthContext);
     const { location, phone, productName, price, productImage, _id, name, email } = bookingData;
+    const accessToken = localStorage.getItem('accessToken');
     // console.log(bookingData);
 
     const handleBooking = (event) => {
@@ -29,6 +30,7 @@ const BookingModal = ({ setBookingData, bookingData }) => {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
+                authorization: `bearer ${accessToken}`,
             },
             body: JSON.stringify(bookings),
         })

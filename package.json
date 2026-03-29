@@ -2,6 +2,10 @@
   "name": "uselap",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=18 <26",
+    "npm": ">=9"
+  },
   "dependencies": {
     "@stripe/react-stripe-js": "^1.15.0",
     "@stripe/stripe-js": "^1.44.1",
@@ -9,7 +13,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.2.0",
+    "axios": "^1.14.0",
     "daisyui": "^2.41.0",
     "firebase": "^9.14.0",
     "lottie-react": "^2.3.1",

@@ -1,64 +1,58 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 const Advertise = () => {
-    const [bookingData, setBookingData] = useState({});
-
     const { data: advertised = [] } = useQuery({
         queryKey: ['advertise'],
         queryFn: async () => {
-            const res = await fetch(
-                `${process.env.REACT_APP_LOCALHOST}/advertise`,
-            );
-            const data = res.json();
+            const res = await fetch(`${process.env.REACT_APP_LOCALHOST}/advertise`);
+            const data = await res.json();
             return data;
         },
     });
 
+    if (!advertised?.length) {
+        return null;
+    }
+
     return (
-        <>
-            {advertised?.length === 0 ? (
-                <></>
-            ) : (
-                <>
-                    <div className="max-w-[1440px]">
-                        <div className="py-7 text-center font-bold text-3xl uppercase">
-                            <p>Advertise second hand product</p>
-                            <hr className="mt-1 border-2" />
+        <section className="page-shell mt-12">
+            <div className="flex items-end justify-between gap-3">
+                <div>
+                    <p className="brand-chip inline-block rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em]">
+                        Seller Spotlight
+                    </p>
+                    <h2 className="soft-title mt-3">Featured Advertised Laptops</h2>
+                </div>
+            </div>
+
+            <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                {advertised.map((item) => (
+                    <article key={item._id} className="glass-card overflow-hidden rounded-2xl">
+                        <img
+                            className="h-48 w-full object-cover"
+                            src={item.productImage}
+                            alt={item.productName}
+                        />
+                        <div className="p-5">
+                            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-cyan-700">
+                                {item.category}
+                            </p>
+                            <h3 className="mt-2 text-xl font-bold text-slate-900">{item.productName}</h3>
+                            <div className="mt-4 grid grid-cols-2 gap-2 text-sm text-slate-600">
+                                <p>
+                                    Price: <span className="font-semibold text-slate-900">${item.price}</span>
+                                </p>
+                                <p>
+                                    City: <span className="font-semibold text-slate-900">{item.location}</span>
+                                </p>
+                            </div>
+                            <p className="mt-3 truncate text-sm text-slate-500">Seller: {item.email}</p>
                         </div>
-                        <div className="relative w-full border-2 shadow-2xl flex gap-4 py-6 overflow-x-auto">
-                            {advertised?.map((advertise, i) => (
-                                <>
-                                    <img
-                                        key={i}
-                                        className="h-56 w-56 aspect-video rounded-2xl object-cover object-center bg-gray-500"
-                                        src={advertise.productImage}
-                                        alt=""
-                                    />
-                                    <div className="pr-3 leading-8">
-                                        <h1 className="text-2xl text-purple-600 font-semibold">
-                                            {advertise.category}
-                                        </h1>
-                                        <h1 className="font-bold">
-                                            {advertise.productName}
-                                        </h1>
-                                        <h1 className="font-semibold">
-                                            Price: ${advertise.price}
-                                        </h1>
-                                        <h1 className="font-semibold">
-                                            {advertise.location}
-                                        </h1>
-                                        <h1 className="font-semibold">
-                                            {advertise.email}
-                                        </h1>
-                                    </div>
-                                </>
-                            ))}
-                        </div>
-                    </div>
-                </>
-            )}
-        </>
+                    </article>
+                ))}
+            </div>
+        </section>
     );
 };
 
